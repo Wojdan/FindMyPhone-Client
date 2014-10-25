@@ -19,8 +19,6 @@
 		849DA8E819FBE22B00477911 /* FMPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8E719FBE22B00477911 /* FMPRegisterViewController.m */; };
 		849DA8ED19FBEB2600477911 /* FMPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8EC19FBEB2600477911 /* FMPButton.m */; };
 		849DA8F219FBEBD900477911 /* FMPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8F119FBEBD900477911 /* FMPTextField.m */; };
-		849DA8F519FBF88A00477911 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8F419FBF88A00477911 /* logo@2x.png */; };
-		849DA8FF19FC0AE900477911 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8FE19FC0AE900477911 /* close@2x.png */; };
 		849DA90319FC11A800477911 /* FMPApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA90219FC11A800477911 /* FMPApiController.m */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +53,6 @@
 		849DA8EC19FBEB2600477911 /* FMPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPButton.m; sourceTree = "<group>"; };
 		849DA8F019FBEBD900477911 /* FMPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPTextField.h; sourceTree = "<group>"; };
 		849DA8F119FBEBD900477911 /* FMPTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPTextField.m; sourceTree = "<group>"; };
-		849DA8F419FBF88A00477911 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
-		849DA8FE19FC0AE900477911 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		849DA90119FC11A800477911 /* FMPApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPApiController.h; sourceTree = "<group>"; };
 		849DA90219FC11A800477911 /* FMPApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPApiController.m; sourceTree = "<group>"; };
 		A98B3ADB08A543188EAB79A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,8 +199,6 @@
 		849DA8F319FBF87600477911 /* gfx */ = {
 			isa = PBXGroup;
 			children = (
-				849DA8F419FBF88A00477911 /* logo@2x.png */,
-				849DA8FE19FC0AE900477911 /* close@2x.png */,
 			);
 			name = gfx;
 			sourceTree = "<group>";
@@ -308,10 +302,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849DA8F519FBF88A00477911 /* logo@2x.png in Resources */,
 				849DA8DF19FBD8D200477911 /* RegisterViewController.storyboard in Resources */,
 				849DA8C419FBD6A300477911 /* LaunchScreen.xib in Resources */,
-				849DA8FF19FC0AE900477911 /* close@2x.png in Resources */,
 				849DA8E119FBDC4B00477911 /* LoginViewController.storyboard in Resources */,
 				849DA8C119FBD6A300477911 /* Images.xcassets in Resources */,
 			);

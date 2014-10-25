@@ -7,6 +7,7 @@
 //
 
 #import "FMPApiController.h"
+#import "SVProgressHUD.h"
 
 @implementation FMPApiController
 
@@ -34,12 +35,17 @@
                                          @"password"  : password
                                          } mutableCopy];
 
+    [SVProgressHUD show];
     [[FMPApiController sharedInstance] POST:@"testRegister" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [SVProgressHUD showSuccessWithStatus:responseObject[@"message"]];
 
         NSLog(@"Registration successfull.\nResponse object:\n%@", responseObject);
         handler(YES, nil);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
 
         NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
         handler(NO, error);
