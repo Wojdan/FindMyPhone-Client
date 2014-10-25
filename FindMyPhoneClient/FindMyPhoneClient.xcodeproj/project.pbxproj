@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27F7C6E48221409F9F007F2E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A98B3ADB08A543188EAB79A6 /* libPods.a */; };
-		8490618819FC2149005509A6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490618719FC2149005509A6 /* icon@2x.png */; };
+		8490618A19FC2582005509A6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490618919FC2582005509A6 /* icon@2x.png */; };
 		849DA8B619FBD6A300477911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B519FBD6A300477911 /* main.m */; };
 		849DA8B919FBD6A300477911 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B819FBD6A300477911 /* AppDelegate.m */; };
 		849DA8C119FBD6A300477911 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8C019FBD6A300477911 /* Images.xcassets */; };
@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8490618719FC2149005509A6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		8490618919FC2582005509A6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		849DA8B019FBD6A300477911 /* FindMyPhoneClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyPhoneClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849DA8B419FBD6A300477911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849DA8B519FBD6A300477911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		849DA8F319FBF87600477911 /* gfx */ = {
 			isa = PBXGroup;
 			children = (
-				8490618719FC2149005509A6 /* icon@2x.png */,
+				8490618919FC2582005509A6 /* icon@2x.png */,
 			);
 			name = gfx;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 				849DA8C419FBD6A300477911 /* LaunchScreen.xib in Resources */,
 				849DA8E119FBDC4B00477911 /* LoginViewController.storyboard in Resources */,
 				849DA8C119FBD6A300477911 /* Images.xcassets in Resources */,
-				8490618819FC2149005509A6 /* icon@2x.png in Resources */,
+				8490618A19FC2582005509A6 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
