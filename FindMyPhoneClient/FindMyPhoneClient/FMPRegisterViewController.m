@@ -129,6 +129,10 @@
 
     [FMPApiController registerUserWithEmailAddress:self.loginTextField.text password:self.passwordTextField.text completionHandler:^(BOOL success, NSError *error) {
 
+        if (success) {
+            [self.view endEditing:YES];
+        }
+
     }];
 }
 
