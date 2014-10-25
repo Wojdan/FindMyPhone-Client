@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		849DA8B619FBD6A300477911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B519FBD6A300477911 /* main.m */; };
+		849DA8B919FBD6A300477911 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B819FBD6A300477911 /* AppDelegate.m */; };
+		849DA8C119FBD6A300477911 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8C019FBD6A300477911 /* Images.xcassets */; };
+		849DA8C419FBD6A300477911 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8C219FBD6A300477911 /* LaunchScreen.xib */; };
+		849DA8D019FBD6A300477911 /* FindMyPhoneClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8CF19FBD6A300477911 /* FindMyPhoneClientTests.m */; };
+		849DA8DF19FBD8D200477911 /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8DE19FBD8D200477911 /* RegisterViewController.storyboard */; };
+		849DA8E119FBDC4B00477911 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8E019FBDC4B00477911 /* LoginViewController.storyboard */; };
+		849DA8E419FBE21100477911 /* FMPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8E319FBE21100477911 /* FMPLoginViewController.m */; };
+		849DA8E819FBE22B00477911 /* FMPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8E719FBE22B00477911 /* FMPRegisterViewController.m */; };
+		849DA8ED19FBEB2600477911 /* FMPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8EC19FBEB2600477911 /* FMPButton.m */; };
+		849DA8F219FBEBD900477911 /* FMPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8F119FBEBD900477911 /* FMPTextField.m */; };
+		849DA8F519FBF88A00477911 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8F419FBF88A00477911 /* logo@2x.png */; };
+		849DA8FF19FC0AE900477911 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8FE19FC0AE900477911 /* close@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		849DA8CA19FBD6A300477911 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 849DA8A819FBD6A200477911 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 849DA8AF19FBD6A300477911;
+			remoteInfo = FindMyPhoneClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		849DA8B019FBD6A300477911 /* FindMyPhoneClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyPhoneClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		849DA8B419FBD6A300477911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849DA8B519FBD6A300477911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		849DA8B719FBD6A300477911 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		849DA8B819FBD6A300477911 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		849DA8C019FBD6A300477911 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		849DA8C319FBD6A300477911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		849DA8C919FBD6A300477911 /* FindMyPhoneClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindMyPhoneClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		849DA8CE19FBD6A300477911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849DA8CF19FBD6A300477911 /* FindMyPhoneClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindMyPhoneClientTests.m; sourceTree = "<group>"; };
+		849DA8DE19FBD8D200477911 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
+		849DA8E019FBDC4B00477911 /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		849DA8E219FBE21100477911 /* FMPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPLoginViewController.h; sourceTree = "<group>"; };
+		849DA8E319FBE21100477911 /* FMPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPLoginViewController.m; sourceTree = "<group>"; };
+		849DA8E619FBE22B00477911 /* FMPRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPRegisterViewController.h; sourceTree = "<group>"; };
+		849DA8E719FBE22B00477911 /* FMPRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPRegisterViewController.m; sourceTree = "<group>"; };
+		849DA8EB19FBEB2600477911 /* FMPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPButton.h; sourceTree = "<group>"; };
+		849DA8EC19FBEB2600477911 /* FMPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPButton.m; sourceTree = "<group>"; };
+		849DA8F019FBEBD900477911 /* FMPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPTextField.h; sourceTree = "<group>"; };
+		849DA8F119FBEBD900477911 /* FMPTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPTextField.m; sourceTree = "<group>"; };
+		849DA8F419FBF88A00477911 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		849DA8FE19FC0AE900477911 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		849DA8AD19FBD6A300477911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849DA8C619FBD6A300477911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		849DA8A719FBD6A200477911 = {
+			isa = PBXGroup;
+			children = (
+				849DA8B219FBD6A300477911 /* FindMyPhoneClient */,
+				849DA8CC19FBD6A300477911 /* FindMyPhoneClientTests */,
+				849DA8B119FBD6A300477911 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		849DA8B119FBD6A300477911 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8B019FBD6A300477911 /* FindMyPhoneClient.app */,
+				849DA8C919FBD6A300477911 /* FindMyPhoneClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		849DA8B219FBD6A300477911 /* FindMyPhoneClient */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8B719FBD6A300477911 /* AppDelegate.h */,
+				849DA8B819FBD6A300477911 /* AppDelegate.m */,
+				849DA8EA19FBEB0200477911 /* Subclasses */,
+				849DA8D919FBD85D00477911 /* ViewControllers */,
+				849DA8F319FBF87600477911 /* gfx */,
+				849DA8C019FBD6A300477911 /* Images.xcassets */,
+				849DA8C219FBD6A300477911 /* LaunchScreen.xib */,
+				849DA8B319FBD6A300477911 /* Supporting Files */,
+			);
+			path = FindMyPhoneClient;
+			sourceTree = "<group>";
+		};
+		849DA8B319FBD6A300477911 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8B419FBD6A300477911 /* Info.plist */,
+				849DA8B519FBD6A300477911 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		849DA8CC19FBD6A300477911 /* FindMyPhoneClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8CF19FBD6A300477911 /* FindMyPhoneClientTests.m */,
+				849DA8CD19FBD6A300477911 /* Supporting Files */,
+			);
+			path = FindMyPhoneClientTests;
+			sourceTree = "<group>";
+		};
+		849DA8CD19FBD6A300477911 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8CE19FBD6A300477911 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		849DA8D919FBD85D00477911 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8E919FBE23300477911 /* Register */,
+				849DA8E519FBE21800477911 /* Login */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		849DA8E519FBE21800477911 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8E219FBE21100477911 /* FMPLoginViewController.h */,
+				849DA8E319FBE21100477911 /* FMPLoginViewController.m */,
+				849DA8E019FBDC4B00477911 /* LoginViewController.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		849DA8E919FBE23300477911 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8E619FBE22B00477911 /* FMPRegisterViewController.h */,
+				849DA8E719FBE22B00477911 /* FMPRegisterViewController.m */,
+				849DA8DE19FBD8D200477911 /* RegisterViewController.storyboard */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		849DA8EA19FBEB0200477911 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8EF19FBEBBB00477911 /* Default TextField */,
+				849DA8EE19FBEBB100477911 /* Default Button */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		849DA8EE19FBEBB100477911 /* Default Button */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8EB19FBEB2600477911 /* FMPButton.h */,
+				849DA8EC19FBEB2600477911 /* FMPButton.m */,
+			);
+			name = "Default Button";
+			sourceTree = "<group>";
+		};
+		849DA8EF19FBEBBB00477911 /* Default TextField */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8F019FBEBD900477911 /* FMPTextField.h */,
+				849DA8F119FBEBD900477911 /* FMPTextField.m */,
+			);
+			name = "Default TextField";
+			sourceTree = "<group>";
+		};
+		849DA8F319FBF87600477911 /* gfx */ = {
+			isa = PBXGroup;
+			children = (
+				849DA8F419FBF88A00477911 /* logo@2x.png */,
+				849DA8FE19FC0AE900477911 /* close@2x.png */,
+			);
+			name = gfx;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		849DA8AF19FBD6A300477911 /* FindMyPhoneClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849DA8D319FBD6A300477911 /* Build configuration list for PBXNativeTarget "FindMyPhoneClient" */;
+			buildPhases = (
+				849DA8AC19FBD6A300477911 /* Sources */,
+				849DA8AD19FBD6A300477911 /* Frameworks */,
+				849DA8AE19FBD6A300477911 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindMyPhoneClient;
+			productName = FindMyPhoneClient;
+			productReference = 849DA8B019FBD6A300477911 /* FindMyPhoneClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		849DA8C819FBD6A300477911 /* FindMyPhoneClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849DA8D619FBD6A300477911 /* Build configuration list for PBXNativeTarget "FindMyPhoneClientTests" */;
+			buildPhases = (
+				849DA8C519FBD6A300477911 /* Sources */,
+				849DA8C619FBD6A300477911 /* Frameworks */,
+				849DA8C719FBD6A300477911 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				849DA8CB19FBD6A300477911 /* PBXTargetDependency */,
+			);
+			name = FindMyPhoneClientTests;
+			productName = FindMyPhoneClientTests;
+			productReference = 849DA8C919FBD6A300477911 /* FindMyPhoneClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		849DA8A819FBD6A200477911 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = wojdan;
+				TargetAttributes = {
+					849DA8AF19FBD6A300477911 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					849DA8C819FBD6A300477911 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 849DA8AF19FBD6A300477911;
+					};
+				};
+			};
+			buildConfigurationList = 849DA8AB19FBD6A200477911 /* Build configuration list for PBXProject "FindMyPhoneClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 849DA8A719FBD6A200477911;
+			productRefGroup = 849DA8B119FBD6A300477911 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				849DA8AF19FBD6A300477911 /* FindMyPhoneClient */,
+				849DA8C819FBD6A300477911 /* FindMyPhoneClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		849DA8AE19FBD6A300477911 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				849DA8F519FBF88A00477911 /* logo@2x.png in Resources */,
+				849DA8DF19FBD8D200477911 /* RegisterViewController.storyboard in Resources */,
+				849DA8C419FBD6A300477911 /* LaunchScreen.xib in Resources */,
+				849DA8FF19FC0AE900477911 /* close@2x.png in Resources */,
+				849DA8E119FBDC4B00477911 /* LoginViewController.storyboard in Resources */,
+				849DA8C119FBD6A300477911 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849DA8C719FBD6A300477911 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		849DA8AC19FBD6A300477911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				849DA8B919FBD6A300477911 /* AppDelegate.m in Sources */,
+				849DA8ED19FBEB2600477911 /* FMPButton.m in Sources */,
+				849DA8E819FBE22B00477911 /* FMPRegisterViewController.m in Sources */,
+				849DA8B619FBD6A300477911 /* main.m in Sources */,
+				849DA8E419FBE21100477911 /* FMPLoginViewController.m in Sources */,
+				849DA8F219FBEBD900477911 /* FMPTextField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849DA8C519FBD6A300477911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				849DA8D019FBD6A300477911 /* FindMyPhoneClientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		849DA8CB19FBD6A300477911 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 849DA8AF19FBD6A300477911 /* FindMyPhoneClient */;
+			targetProxy = 849DA8CA19FBD6A300477911 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		849DA8C219FBD6A300477911 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				849DA8C319FBD6A300477911 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		849DA8D119FBD6A300477911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		849DA8D219FBD6A300477911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		849DA8D419FBD6A300477911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = FindMyPhoneClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		849DA8D519FBD6A300477911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = FindMyPhoneClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		849DA8D719FBD6A300477911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FindMyPhoneClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindMyPhoneClient.app/FindMyPhoneClient";
+			};
+			name = Debug;
+		};
+		849DA8D819FBD6A300477911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FindMyPhoneClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindMyPhoneClient.app/FindMyPhoneClient";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		849DA8AB19FBD6A200477911 /* Build configuration list for PBXProject "FindMyPhoneClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849DA8D119FBD6A300477911 /* Debug */,
+				849DA8D219FBD6A300477911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		849DA8D319FBD6A300477911 /* Build configuration list for PBXNativeTarget "FindMyPhoneClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849DA8D419FBD6A300477911 /* Debug */,
+				849DA8D519FBD6A300477911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		849DA8D619FBD6A300477911 /* Build configuration list for PBXNativeTarget "FindMyPhoneClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849DA8D719FBD6A300477911 /* Debug */,
+				849DA8D819FBD6A300477911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 849DA8A819FBD6A200477911 /* Project object */;
+}
