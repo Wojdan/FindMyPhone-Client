@@ -7,6 +7,7 @@
 //
 
 #import "FMPRegisterViewController.h"
+#import "FMPApiController.h"
 
 @interface FMPRegisterViewController ()
 
@@ -118,6 +119,17 @@
 
     [self dismissViewControllerAnimated:YES completion:nil];
 
+}
+
+- (IBAction)submitButtonClicked:(id)sender {
+
+    if (!(self.loginTextField.text.length > 0 && self.passwordTextField.text.length > 0 && self.retypePasswordTextField.text.length > 0 && [self.passwordTextField.text isEqualToString:self.retypePasswordTextField.text])) {
+        return;
+    }
+
+    [FMPApiController registerUserWithEmailAddress:self.loginTextField.text password:self.passwordTextField.text completionHandler:^(BOOL success, NSError *error) {
+
+    }];
 }
 
 @end
