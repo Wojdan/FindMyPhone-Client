@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 wojdan. All rights reserved.
 //
 
+#import "AppDelegate.h"
+
 #import "FMPLoginViewController.h"
 #import "FMPRegisterViewController.h"
 #import "FMPHelpers.h"
@@ -165,7 +167,12 @@
         return;
     }
 
-    NSLog(@"Attempt to sign in");
+    UIViewController *vc = [UIViewController new];
+    vc.view.backgroundColor = [UIColor whiteColor];
+
+    [AppDelegate setRootViewController:vc];
+
+    NSLog(@"Zalogowono");
 
 }
 
