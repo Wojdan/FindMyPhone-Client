@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27F7C6E48221409F9F007F2E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A98B3ADB08A543188EAB79A6 /* libPods.a */; };
 		8490618A19FC2582005509A6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490618919FC2582005509A6 /* icon@2x.png */; };
+		8490618D19FD3535005509A6 /* FMPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490618C19FD3535005509A6 /* FMPHelpers.m */; };
 		849DA8B619FBD6A300477911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B519FBD6A300477911 /* main.m */; };
 		849DA8B919FBD6A300477911 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B819FBD6A300477911 /* AppDelegate.m */; };
 		849DA8C119FBD6A300477911 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8C019FBD6A300477911 /* Images.xcassets */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		8490618919FC2582005509A6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		8490618B19FD3535005509A6 /* FMPHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPHelpers.h; sourceTree = "<group>"; };
+		8490618C19FD3535005509A6 /* FMPHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPHelpers.m; sourceTree = "<group>"; };
 		849DA8B019FBD6A300477911 /* FindMyPhoneClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyPhoneClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849DA8B419FBD6A300477911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849DA8B519FBD6A300477911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8490618E19FD353B005509A6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8490618B19FD3535005509A6 /* FMPHelpers.h */,
+				8490618C19FD3535005509A6 /* FMPHelpers.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		849DA8A719FBD6A200477911 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +120,7 @@
 				849DA90019FC114300477911 /* API and Model */,
 				849DA8D919FBD85D00477911 /* ViewControllers */,
 				849DA8EA19FBEB0200477911 /* Subclasses */,
+				8490618E19FD353B005509A6 /* Helpers */,
 				849DA8F319FBF87600477911 /* gfx */,
 				849DA8C019FBD6A300477911 /* Images.xcassets */,
 				849DA8C219FBD6A300477911 /* LaunchScreen.xib */,
@@ -365,6 +378,7 @@
 				849DA8ED19FBEB2600477911 /* FMPButton.m in Sources */,
 				849DA8E819FBE22B00477911 /* FMPRegisterViewController.m in Sources */,
 				849DA8B619FBD6A300477911 /* main.m in Sources */,
+				8490618D19FD3535005509A6 /* FMPHelpers.m in Sources */,
 				849DA8E419FBE21100477911 /* FMPLoginViewController.m in Sources */,
 				849DA8F219FBEBD900477911 /* FMPTextField.m in Sources */,
 			);

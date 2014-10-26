@@ -8,6 +8,10 @@
 
 #import "FMPRegisterViewController.h"
 #import "FMPApiController.h"
+#import "SVProgressHUD.h"
+#import "FMPHelpers.h"
+
+#define PASSWORD_MIN_LENGTH 5
 
 @interface FMPRegisterViewController ()
 
@@ -89,9 +93,73 @@
 
 }
 
+#pragma mark - Handful methods
+
+- (BOOL)registrationFormIsValid {
+
+    NSString *errorMessage;
+
+    if (self.loginTextField.text.length == 0) {
+        [FMPHelpers shakeView:self.loginTextField showingBorder:YES];
+        errorMessage = @"Some fields are empty.";
+    }
+
+    if (self.passwordTextField.text.length == 0) {
+        [FMPHelpers shakeView:self.passwordTextField showingBorder:YES];
+        errorMessage = @"Some fields are empty.";
+    }
+
+    if (self.retypePasswordTextField.text.length == 0) {
+        [FMPHelpers shakeView:self.retypePasswordTextField showingBorder:YES];
+        errorMessage = @"Some fields are empty.";
+    }
+
+    if (errorMessage) {
+        [SVProgressHUD showErrorWithStatus:errorMessage];
+        return NO;
+    }
+
+    if (![FMPHelpers validateEmail:self.loginTextField.text]) {
+        errorMessage = @"Incorrect email address.";
+        [FMPHelpers shakeView:self.loginTextField showingBorder:YES];
+        [SVProgressHUD showErrorWithStatus:errorMessage];
+        return NO;
+    }
+
+    if (![self.passwordTextField.text isEqualToString:self.retypePasswordTextField.text]) {
+        self.passwordTextField.text = nil;
+        self.retypePasswordTextField.text = nil;
+        errorMessage = @"Passwords must be the same.";
+        [FMPHelpers shakeView:self.passwordTextField showingBorder:YES];
+        [FMPHelpers shakeView:self.retypePasswordTextField showingBorder:YES];
+        [SVProgressHUD showErrorWithStatus:errorMessage];
+        return NO;
+    }
+
+    if (self.passwordTextField.text.length < PASSWORD_MIN_LENGTH) {
+        self.passwordTextField.text = nil;
+        self.retypePasswordTextField.text = nil;
+        errorMessage = [NSString stringWithFormat:@"Password must have at least %d characters", PASSWORD_MIN_LENGTH];
+        [FMPHelpers shakeView:self.passwordTextField showingBorder:YES];
+        [FMPHelpers shakeView:self.retypePasswordTextField showingBorder:YES];
+        [SVProgressHUD showErrorWithStatus:errorMessage];
+        return NO;
+    }
+
+    return YES;
+}
+
 #pragma mark - UITextFieldDelegate
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    textField.layer.borderWidth = 0;
+
+    return YES;
+
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 
     [self.scrollView setContentOffset:CGPointZero animated:YES];
 
@@ -123,7 +191,7 @@
 
 - (IBAction)submitButtonClicked:(id)sender {
 
-    if (!(self.loginTextField.text.length > 0 && self.passwordTextField.text.length > 0 && self.retypePasswordTextField.text.length > 0 && [self.passwordTextField.text isEqualToString:self.retypePasswordTextField.text])) {
+    if (![self registrationFormIsValid]) {
         return;
     }
 

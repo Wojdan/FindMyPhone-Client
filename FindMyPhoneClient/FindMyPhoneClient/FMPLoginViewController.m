@@ -8,6 +8,9 @@
 
 #import "FMPLoginViewController.h"
 #import "FMPRegisterViewController.h"
+#import "FMPHelpers.h"
+
+#import "SVProgressHUD.h"
 
 @interface FMPLoginViewController ()
 
@@ -89,9 +92,39 @@
     
 }
 
+#pragma mark - Handful methods
+
+- (BOOL)loginFormValid {
+
+    NSString *errorMessage;
+    if (self.loginTextField.text.length == 0) {
+        [FMPHelpers shakeView:self.loginTextField showingBorder:YES];
+        errorMessage = @"Login or password is missing.";
+    }
+
+    if (self.passwordTextField.text.length == 0) {
+        [FMPHelpers shakeView:self.passwordTextField showingBorder:YES];
+        errorMessage = @"Login or password is missing.";
+    }
+
+    if (errorMessage) {
+        [SVProgressHUD showErrorWithStatus:errorMessage];
+        return NO;
+    }
+
+    if (![FMPHelpers validateEmail:self.loginTextField.text]) {
+        errorMessage = @"Incorrect email address.";
+        [FMPHelpers shakeView:self.loginTextField showingBorder:YES];
+        [SVProgressHUD showErrorWithStatus:errorMessage];
+        return NO;
+    }
+
+    return YES;
+}
+
 #pragma mark - UITextFieldDelegate
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 
     [self.scrollView setContentOffset:CGPointZero animated:YES];
 
@@ -109,6 +142,12 @@
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    textField.layer.borderWidth = 0;
+
+    return YES;
+}
 
 #pragma mark - IBActions
 
@@ -117,6 +156,16 @@
     FMPRegisterViewController *registerVC = [[UIStoryboard storyboardWithName:@"RegisterViewController" bundle:nil] instantiateInitialViewController];
 
     [self presentViewController:registerVC animated:YES completion:nil];
+
+}
+
+- (IBAction)signInButtonClicked:(id)sender {
+
+    if (![self loginFormValid]) {
+        return;
+    }
+
+    NSLog(@"Attempt to sign in");
 
 }
 
