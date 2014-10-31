@@ -8,6 +8,7 @@
 
 #import "FMPApiController.h"
 #import "SVProgressHUD.h"
+#import "FMPDefaultsController.h"
 
 @implementation FMPApiController
 
@@ -36,9 +37,10 @@
                                          } mutableCopy];
 
     [SVProgressHUD show];
-    [[FMPApiController sharedInstance] POST:@"testRegister" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        [SVProgressHUD showSuccessWithStatus:responseObject[@"message"]];
+    [[FMPApiController sharedInstance] POST:@"users/register" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [SVProgressHUD showSuccessWithStatus:@"Registration successful!"];
 
         NSLog(@"Registration successfull.\nResponse object:\n%@", responseObject);
         handler(YES, nil);
@@ -50,6 +52,83 @@
         NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
         handler(NO, error);
 
+    }];
+
+}
+
++ (void)loginWithEmailAddress:(NSString *)emailAddress password:(NSString *)password completionHandler:(void (^)(BOOL, NSError *))handler {
+
+    NSMutableDictionary *parameters = [@{
+                                         @"email" : emailAddress,
+                                         @"password"  : password
+                                         } mutableCopy];
+
+    [SVProgressHUD show];
+    [[FMPApiController sharedInstance] POST:@"users/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSString *token = [operation.response allHeaderFields][@"Authorization"];
+        if (token) {
+            [FMPDefaultsController saveToken:token];
+            [FMPApiController sharedInstance].accessToken = token;
+            [[FMPApiController sharedInstance].requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
+
+            NSLog(@"Login successfull");
+            handler(YES, nil);
+        } else {
+            handler(NO, nil);
+        }
+
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
+
+        NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
+        handler(NO, error);
+    }];
+}
+
++ (void)addDeviceWithName:(NSString *)name password:(NSString *)description vendorID:(NSString*)vendorID completionHandler:(void (^)(BOOL, NSError *))handler {
+
+    NSMutableDictionary *parameters = [@{
+                                         @"name" : name,
+                                         @"description"  : description,
+                                         @"device_id" : vendorID
+                                         } mutableCopy];
+
+    [SVProgressHUD show];
+    [[FMPApiController sharedInstance] POST:@"devices" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [SVProgressHUD showSuccessWithStatus:@"Device added successfully!"];
+        handler(YES,nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
+
+        NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
+        handler(NO, error);
+    }];
+}
+
++ (void)getDevicesWithCompletionHandler:(void (^)(BOOL, NSArray*, NSError *))handler {
+
+    [[FMPApiController sharedInstance] GET:@"devices" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSArray *devices = @[];
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            if ([((NSDictionary*)responseObject) objectForKey:@"devices"]) {
+                devices = [((NSDictionary*)responseObject) objectForKey:@"devices"];
+            }
+        }
+
+        handler(YES, devices, nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
+        NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
+        handler(NO, nil, error);
     }];
 
 }

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
+#import "FMPApiController.h"
+#import "FMPDefaultsController.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [self _setupAppearance];
+
+    if ([FMPDefaultsController getToken]) {
+        NSLog(@"Można ominąć logowanie!");
+    }
 
     return YES;
 }
@@ -34,15 +40,32 @@
 
     NSParameterAssert(viewController);
 
-    UIWindow *delegateWindow = [[UIApplication sharedApplication].delegate window];
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    UIViewController *oldRootViewController = window.rootViewController;
 
-    [UIView transitionWithView:delegateWindow
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{
-                        delegateWindow.rootViewController = viewController;
-                    }
-                    completion:nil];
+    [oldRootViewController addChildViewController:viewController];
+    [oldRootViewController.view addSubview:viewController.view];
+    [viewController didMoveToParentViewController:oldRootViewController];
+
+    viewController.view.alpha = 0.0;
+    [oldRootViewController.view bringSubviewToFront:viewController.view];
+
+    [UIView transitionWithView:window duration:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        viewController.view.alpha = 1.0;
+
+    } completion:^(BOOL finished) {
+        [viewController willMoveToParentViewController:nil];
+        [viewController.view removeFromSuperview];
+        [viewController removeFromParentViewController];
+        window.rootViewController = viewController;
+    }];
+}
+
++ (void)showLoginViewController{
+
+    UIViewController *loginViewController = [[UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil] instantiateInitialViewController];
+    [AppDelegate setRootViewController:loginViewController];
+
 }
 
 @end

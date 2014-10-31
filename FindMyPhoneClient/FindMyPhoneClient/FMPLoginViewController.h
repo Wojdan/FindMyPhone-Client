@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define REGISTER_SUCCESS_NOTIFICATION @"Register-Succeeded-Notification"
+
 @interface FMPLoginViewController : UIViewController <UITextFieldDelegate>
 
 @end

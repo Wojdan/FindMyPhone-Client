@@ -10,6 +10,7 @@
 #import "FMPApiController.h"
 #import "SVProgressHUD.h"
 #import "FMPHelpers.h"
+#import "FMPLoginViewController.h"
 
 #define PASSWORD_MIN_LENGTH 5
 
@@ -198,6 +199,15 @@
     [FMPApiController registerUserWithEmailAddress:self.loginTextField.text password:self.passwordTextField.text completionHandler:^(BOOL success, NSError *error) {
 
         if (success) {
+
+            [self dismissViewControllerAnimated:YES completion:^{
+
+                [[NSNotificationCenter defaultCenter] postNotificationName:REGISTER_SUCCESS_NOTIFICATION object:nil userInfo:@{
+                                                                                                                               @"email":self.loginTextField.text,
+                                                                                                                               @"password": self.passwordTextField.text
+                                                                                                                               }];
+
+            }];
             [self.view endEditing:YES];
         }
 
