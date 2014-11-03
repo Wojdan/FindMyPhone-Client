@@ -9,6 +9,7 @@
 #import "FMPApiController.h"
 #import "SVProgressHUD.h"
 #import "FMPDefaultsController.h"
+#import "AppDelegate.h"
 
 @implementation FMPApiController
 
@@ -47,9 +48,8 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
-
-        NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
+        [SVProgressHUD dismiss];
+        [self handleError:error];
         handler(NO, error);
 
     }];
@@ -66,6 +66,7 @@
     [SVProgressHUD show];
     [[FMPApiController sharedInstance] POST:@"users/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
+        [SVProgressHUD dismiss];
         NSString *token = [operation.response allHeaderFields][@"Authorization"];
         if (token) {
             [FMPDefaultsController saveToken:token];
@@ -81,14 +82,13 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
-
-        NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
+        [SVProgressHUD dismiss];
+        [self handleError:error];
         handler(NO, error);
     }];
 }
 
-+ (void)addDeviceWithName:(NSString *)name password:(NSString *)description vendorID:(NSString*)vendorID completionHandler:(void (^)(BOOL, NSError *))handler {
++ (void)addDeviceWithName:(NSString *)name description:(NSString *)description vendorID:(NSString*)vendorID completionHandler:(void (^)(BOOL, NSError *))handler {
 
     NSMutableDictionary *parameters = [@{
                                          @"name" : name,
@@ -97,16 +97,38 @@
                                          } mutableCopy];
 
     [SVProgressHUD show];
-    [[FMPApiController sharedInstance] POST:@"devices" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[FMPApiController sharedInstance] POST:@"device" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
+        [SVProgressHUD dismiss];
         [SVProgressHUD showSuccessWithStatus:@"Device added successfully!"];
         handler(YES,nil);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
+        [SVProgressHUD dismiss];
+        [self handleError:error];
+        handler(NO, error);
+    }];
+}
 
-        NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
++ (void)updateDeviceWithID:(NSNumber*)dID name:(NSString *)name description:(NSString *)description vendorID:(NSString*)vendorID completionHandler:(void (^)(BOOL, NSError *))handler {
+
+    NSMutableDictionary *parameters = [@{
+                                         @"name" : name,
+                                         @"description"  : description,
+                                         @"device_id" : vendorID
+                                         } mutableCopy];
+
+    [SVProgressHUD show];
+    [[FMPApiController sharedInstance] PUT:[NSString stringWithFormat:@"devices/%@",dID] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [SVProgressHUD dismiss];
+        handler(YES,nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [SVProgressHUD dismiss];
+        [self handleError:error];
         handler(NO, error);
     }];
 }
@@ -126,11 +148,76 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD showErrorWithStatus:operation.responseObject[@"message"] ? : [error localizedDescription]];
-        NSLog(@"Registration unsuccessfull!\nResponse error:\n%@", error);
+        [self handleError:error];
         handler(NO, nil, error);
     }];
 
+}
+
++ (void)getLocationsForDeviceWithID:(NSNumber*)deviceID completionHandler:(void (^)(BOOL, NSArray*, NSError *))handler {
+
+    NSString *path = [NSString stringWithFormat:@"devices/%@/locations", deviceID];
+
+    [[FMPApiController sharedInstance] GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSArray *locations = @[];
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            if ([((NSDictionary*)responseObject) objectForKey:@"locations"]) {
+                locations = [((NSDictionary*)responseObject) objectForKey:@"locations"];
+            }
+        }
+        handler(YES, locations, nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [self handleError:error];
+        handler(NO, nil, error);
+    }];
+    
+}
+
++ (void)deregisterDeviceWithID:(NSNumber*)dID completionHandler:(void (^)(BOOL, NSError *))handler {
+
+    NSString *path;
+    if (dID) {
+        path = [NSString stringWithFormat:@"devices/%d", dID.integerValue];
+    } else {
+        [SVProgressHUD showErrorWithStatus:@"Device unregistered. Sign in again."];
+        [self logout];
+        return;
+    }
+    [[FMPApiController sharedInstance] DELETE:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [SVProgressHUD showSuccessWithStatus:@"Device deregistered!"];
+        handler(YES, nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [self handleError:error];
+        handler(NO, error);
+        
+    }];
+    
+}
+
+
++ (void)logout {
+
+    [FMPApiController sharedInstance].accessToken = nil;
+
+    [FMPDefaultsController clearDefaults];
+    [AppDelegate showLoginViewController];
+}
+
++ (void)handleError:(NSError*)error {
+
+    if (error.code == 403) {
+        [self logout];
+        [SVProgressHUD showErrorWithStatus:@"Session expired. Please sign in again."];
+    } else {
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+    }
+    
 }
 
 @end

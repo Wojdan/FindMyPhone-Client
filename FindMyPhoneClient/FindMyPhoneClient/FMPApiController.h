@@ -15,10 +15,19 @@
 @property (strong, nonatomic) NSString *accessToken;
 
 + (instancetype)sharedInstance;
+
 + (void)registerUserWithEmailAddress:(NSString*)emailAddress password:(NSString*)password completionHandler:(void (^)(BOOL success, NSError *error))handler;
+
 + (void)loginWithEmailAddress:(NSString *)emailAddress password:(NSString *)password completionHandler:(void (^)(BOOL, NSError *))handler;
-+ (void)addDeviceWithName:(NSString *)name password:(NSString *)description vendorID:(NSString*)vendorID completionHandler:(void (^)(BOOL, NSError *))handler;
+
++ (void)addDeviceWithName:(NSString *)name description:(NSString *)description vendorID:(NSString*)vendorID completionHandler:(void (^)(BOOL, NSError *))handler;
+
++ (void)updateDeviceWithID:(NSString*)dID name:(NSString *)name description:(NSString *)description vendorID:(NSString*)vendorID completionHandler:(void (^)(BOOL, NSError *))handler;
 
 + (void)getDevicesWithCompletionHandler:(void (^)(BOOL, NSArray*, NSError *))handler;
+
++ (void)getLocationsForDeviceWithID:(NSNumber*)deviceID completionHandler:(void (^)(BOOL, NSArray*, NSError *))handler;
+
++ (void)deregisterDeviceWithID:(NSNumber*)dID completionHandler:(void (^)(BOOL, NSError *))handler;
 
 @end

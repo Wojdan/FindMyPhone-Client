@@ -9,6 +9,8 @@
 #import "FMPDefaultsController.h"
 #import "FMPDevicesViewController.h"
 #import "FMPApiController.h"
+#import "FMPDeviceCell.h"
+#import "FMPDeviceViewController.h"
 
 @interface FMPDevicesViewController ()
 
@@ -30,6 +32,7 @@
     [self.tableView addSubview:refreshControl];
     self.refreshControl = refreshControl;
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchDevices) name:@"Refresh-Devices" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -37,6 +40,10 @@
 
     [self fetchDevices];
 
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -49,11 +56,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    cell.textLabel.text = self.devices[indexPath.row][@"name"] ? : @"";
-    cell.detailTextLabel.text = self.devices[indexPath.row][@"description"] ? : @"";
+    FMPDeviceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceCell"];
 
+    cell.nameLabel.text = self.devices[indexPath.row][@"name"] ? : @"";
+    cell.descriptionLabel.text = self.devices[indexPath.row][@"description"] ? : @"no description";
+    cell.innerContentView.layer.cornerRadius = 5.f;
+    cell.innerContentView.layer.borderWidth = 0.5f;
+    cell.innerContentView.layer.borderColor = [[UIColor darkGrayColor] CGColor];
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell bringSubviewToFront:cell.innerContentView];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    FMPDeviceViewController *deviceController = [[UIStoryboard storyboardWithName:@"DeviceViewController" bundle:nil] instantiateInitialViewController];
+
+    deviceController.deviceID = self.devices[indexPath.row][@"id"];
+    deviceController.device = self.devices[indexPath.row];
+    
+    [self.navigationController pushViewController:deviceController animated:YES];
+
 }
 
 #pragma mark Fetching and reloading
@@ -92,10 +116,12 @@
 }
 - (IBAction)addDeviceButtonClicked:(id)sender {
 
-    UIViewController *newDeviceVC = [[UIStoryboard storyboardWithName:@"NewDeviceViewController" bundle:nil] instantiateInitialViewController];
-    [self presentViewController:newDeviceVC animated:YES completion:^{
-
-    }];
+    [self fetchDevices];
+    //
+//    UIViewController *newDeviceVC = [[UIStoryboard storyboardWithName:@"NewDeviceViewController" bundle:nil] instantiateInitialViewController];
+//    [self presentViewController:newDeviceVC animated:YES completion:^{
+//
+//    }];
 
 }
 

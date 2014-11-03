@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Forgot password-->
+        <!--New Device-->
         <scene sceneID="Yir-ZS-awE">
             <objects>
-                <viewController title="Forgot password" id="j1e-Tt-i1w" customClass="FMPNewDeviceViewController" sceneMemberID="viewController">
+                <viewController title="New Device" id="j1e-Tt-i1w" customClass="FMPNewDeviceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fGJ-BY-CHi"/>
                         <viewControllerLayoutGuide type="bottom" id="ERo-wZ-uRm"/>
@@ -62,7 +62,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="Vb9-p5-hKn"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="j1e-Tt-i1w" id="jvd-hr-bJS"/>
                                                 </connections>
@@ -87,7 +87,7 @@
                                                     <constraint firstAttribute="width" constant="280" id="UUM-kS-xQ2"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="j1e-Tt-i1w" id="3lX-uP-VJa"/>
                                                 </connections>

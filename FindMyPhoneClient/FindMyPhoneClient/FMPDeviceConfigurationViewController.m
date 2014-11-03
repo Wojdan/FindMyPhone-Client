@@ -1,16 +1,16 @@
 //
-//  FMPNewDeviceViewController.m
+//  FMPDeviceConfigurationViewController.m
 //  FindMyPhoneClient
 //
-//  Created by Wojdan on 31.10.2014.
+//  Created by Wojdan on 03.11.2014.
 //  Copyright (c) 2014 wojdan. All rights reserved.
 //
 
+#import "FMPDeviceConfigurationViewController.h"
 #import "SVProgressHUD.h"
-#import "FMPNewDeviceViewController.h"
 #import "FMPApiController.h"
 
-@interface FMPNewDeviceViewController ()
+@interface FMPDeviceConfigurationViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView* scrollableView;
 @property (weak, nonatomic) IBOutlet UIScrollView* scrollView;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation FMPNewDeviceViewController
+@implementation FMPDeviceConfigurationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +30,18 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [self.view addGestureRecognizer:tapGesture];
 
+    [self resetChanges];
+}
+
+- (void)resetChanges {
+
+    self.deviceIDTextField.text = self.device[@"device_id"];
+    self.deviceIDTextField.enabled = NO;
+    self.deviceNameTextField.placeholder = self.device[@"name"];
+    self.deviceDescriptionTextField.placeholder = self.device[@"description"];
+
+    self.deviceNameTextField.text = @"";
+    self.deviceDescriptionTextField.text = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -37,15 +49,17 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-
-    self.deviceIDTextField.text = [UIDevice currentDevice].identifierForVendor.UUIDString;
-    self.deviceIDTextField.enabled = NO;
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.deviceController.segmentedControl.selectedSegmentIndex = 1;
 }
 
 - (void)dealloc {
@@ -99,22 +113,6 @@
 
 }
 
-#pragma mark - Handful methods
-
-- (BOOL)formIsValid {
-
-    NSString *errorMessage;
-    if (self.deviceNameTextField.text.length == 0) {
-        errorMessage = @"Device name is missing.";
-    }
-
-    if (errorMessage) {
-        [SVProgressHUD showErrorWithStatus:errorMessage];
-        return NO;
-    }
-
-    return YES;
-}
 
 #pragma mark - UITextFieldDelegate
 
@@ -143,31 +141,55 @@
     return YES;
 }
 
+
 #pragma mark - IBActions
 
 - (IBAction)submitButtonClicked:(id)sender {
 
-    if (![self formIsValid]) {
+    if (self.deviceIDTextField.text.length == 0 && self.deviceNameTextField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"No changes commited!"];
         return;
     }
 
-    NSLog(@"Dodano urządzenie");
+    NSString *newName = self.deviceNameTextField.text.length > 3 ? self.deviceNameTextField.text : self.deviceNameTextField.placeholder;
+    NSString *newDesc = self.deviceDescriptionTextField.text.length > 3 ? self.deviceDescriptionTextField.text : self.deviceDescriptionTextField.placeholder;
 
-    [FMPApiController addDeviceWithName:self.deviceNameTextField.text description:self.deviceDescriptionTextField.text vendorID:self.deviceIDTextField.text completionHandler:^(BOOL success, NSError *error) {
+    [FMPApiController updateDeviceWithID:self.device[@"id"] name:newName description:newDesc vendorID:self.deviceIDTextField.text completionHandler:^(BOOL success, NSError *error) {
+
         if (success) {
+            [SVProgressHUD showSuccessWithStatus:@"Device updated"];
+            [self.device setValue:newName forKey:@"name"];
+            [self.device setValue:newDesc forKey:@"description"];
+            [self resetChanges];
 
-            [self dismissViewControllerAnimated:YES completion:nil];
-        
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh-Devices" object:nil];
         }
-        
+
     }];
+    
+}
+- (IBAction)deregisterButtonClicked:(id)sender {
+
+    [[[UIAlertView alloc] initWithTitle:@"" message:@"This device is to be deregistered. You won't be able to  receive its location anymore. Are you sure you want to delete it?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil] show];
 
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex == alertView.cancelButtonIndex) {
+        [FMPApiController deregisterDeviceWithID:self.device[@"id"] completionHandler:^(BOOL deregistered, NSError *error) {
+
+            if (deregistered) {
+                [self.deviceController.navigationController popToRootViewControllerAnimated:YES];
+            }
+            
+        }];
+    }
+
+}
+
 - (IBAction)cancelButtonClicked:(id)sender {
-
-    [self dismissViewControllerAnimated:YES completion:^{
-
-    }];
+    [self resetChanges];
 }
 
 @end

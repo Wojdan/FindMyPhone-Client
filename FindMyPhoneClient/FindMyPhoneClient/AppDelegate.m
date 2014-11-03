@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 #import "FMPApiController.h"
 #import "FMPDefaultsController.h"
+#import "FMPHelpers.h"
 
 @interface AppDelegate ()
 
@@ -33,6 +34,9 @@
 
     [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.75]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+
+    [[UINavigationBar appearance] setBarTintColor:FMP_GREEN_COLOR];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
 }
 
