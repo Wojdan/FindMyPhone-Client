@@ -176,7 +176,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 
-    if (buttonIndex == alertView.cancelButtonIndex) {
+    if (buttonIndex != alertView.cancelButtonIndex) {
         [FMPApiController deregisterDeviceWithID:self.device[@"id"] completionHandler:^(BOOL deregistered, NSError *error) {
 
             if (deregistered) {

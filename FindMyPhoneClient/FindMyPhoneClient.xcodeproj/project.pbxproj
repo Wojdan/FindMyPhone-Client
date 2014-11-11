@@ -35,6 +35,7 @@
 		84C80B611A06D8E100313525 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C80B601A06D8E100313525 /* MapKit.framework */; };
 		84C80B631A06EF9300313525 /* DeviceConfigurationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C80B621A06EF9300313525 /* DeviceConfigurationViewController.storyboard */; };
 		84C80B661A06EFBC00313525 /* FMPDeviceConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C80B651A06EFBC00313525 /* FMPDeviceConfigurationViewController.m */; };
+		84E7894D1A12713D00786031 /* FMPPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7894C1A12713D00786031 /* FMPPointAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		84C80B621A06EF9300313525 /* DeviceConfigurationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceConfigurationViewController.storyboard; sourceTree = "<group>"; };
 		84C80B641A06EFBC00313525 /* FMPDeviceConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPDeviceConfigurationViewController.h; sourceTree = "<group>"; };
 		84C80B651A06EFBC00313525 /* FMPDeviceConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPDeviceConfigurationViewController.m; sourceTree = "<group>"; };
+		84E7894B1A12713D00786031 /* FMPPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPPointAnnotation.h; sourceTree = "<group>"; };
+		84E7894C1A12713D00786031 /* FMPPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPPointAnnotation.m; sourceTree = "<group>"; };
 		A98B3ADB08A543188EAB79A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA60BF9866CD402FBE62B41C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,6 +318,8 @@
 				84C80B591A06D72B00313525 /* FMPDeviceLocationViewController.h */,
 				84C80B5A1A06D72B00313525 /* FMPDeviceLocationViewController.m */,
 				84C80B5C1A06D75400313525 /* DeviceLocationViewController.storyboard */,
+				84E7894B1A12713D00786031 /* FMPPointAnnotation.h */,
+				84E7894C1A12713D00786031 /* FMPPointAnnotation.m */,
 			);
 			name = "Device Location";
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				849E5EA51A03C0E80083E46D /* FMPDefaultsController.m in Sources */,
 				84C80B661A06EFBC00313525 /* FMPDeviceConfigurationViewController.m in Sources */,
 				84BF71691A0578F30032D235 /* FMPDeviceCell.m in Sources */,
+				84E7894D1A12713D00786031 /* FMPPointAnnotation.m in Sources */,
 				849DA8ED19FBEB2600477911 /* FMPButton.m in Sources */,
 				849DA8E819FBE22B00477911 /* FMPRegisterViewController.m in Sources */,
 				849E5EB11A03D92D0083E46D /* FMPNewDeviceViewController.m in Sources */,

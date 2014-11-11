@@ -52,17 +52,8 @@
     self.navigationItem.titleView = segmentControl;
     self.segmentedControl = segmentControl;
 
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData:)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
 }
 
-- (IBAction)refreshData:(id)sender {
-
-    if ([self.segmentedControl selectedSegmentIndex] == 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh-Locations" object:nil];
-    }
-
-}
 
 - (IBAction)segmentControlDidChangeValue:(id)sender {
 

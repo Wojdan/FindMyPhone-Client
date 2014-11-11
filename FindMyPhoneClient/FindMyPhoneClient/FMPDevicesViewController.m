@@ -33,6 +33,7 @@
     self.refreshControl = refreshControl;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchDevices) name:@"Refresh-Devices" object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
