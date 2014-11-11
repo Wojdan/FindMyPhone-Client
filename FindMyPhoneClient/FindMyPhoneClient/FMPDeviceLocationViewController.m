@@ -225,12 +225,19 @@
 
     CGFloat circleRadius = 24.f*percentageAge;
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(circleRadius,circleRadius), NO, 0);
-    UIBezierPath* p = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, circleRadius, circleRadius)];
+    UIBezierPath* b = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, circleRadius, circleRadius)];
+
+    [[UIColor whiteColor] setFill];
+
+    [b fill];
+
+    UIBezierPath* p = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(1, 1, circleRadius-2, circleRadius-2)];
 
     UIColor *pinColor = selected ? [UIColor colorWithRed:255.f/255.f green:66.f/255.f blue:0.f/255.f alpha:1] : [UIColor colorWithRed:0.f/255.f green:144.f/255.f blue:255.f/255.f alpha:1];
     [pinColor setFill];
 
     [p fill];
+
 
     UIImage* im = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -264,6 +271,22 @@
 
     return annotationView;
 
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+
+    FMPPointAnnotation *ann = view.annotation;
+    for (FMPPointAnnotation *a in mapView.annotations) {
+        a.selected = NO;
+        MKAnnotationView *annView = [self.mapView viewForAnnotation:a];
+        annView.image = [self createAnnotationImageWithPercentageAge:a.percentageAge selected:NO];
+    }
+
+    ann.selected = YES;
+    MKAnnotationView *annView = [self.mapView viewForAnnotation:ann];
+    annView.image = [self createAnnotationImageWithPercentageAge:ann.percentageAge selected:YES];
+
+    [self.tableView reloadData];
 }
 
 - (void)toggleMenu {
