@@ -26,77 +26,22 @@ Aplikacja:
 
 Przed przystąpieniem do wdrażania instrukcji należy zainstalować:
 
-* Platformę gem cocoapods
+* gem cocoapods
 ```
 sudo gem install cocoapods
 ```
 
 ## Instalacja potrzebnych bibliotek ##
 
-1. Wejdź do katalogu ```www```
-1. Wykonaj poniższy skrypt
+1. Wejdź do katalogu w którym znajduje się plik ```Podfile```
+2. Wykonaj poniższy skrypt
 
 ```
 #!
-sudo npm install
+pod setup
+pod update
 ```
-
-## Development ##
-
-Aby móc modyfikować kod źródłowy aplikacji należy wcześniej wykonać skrypt: ```gulp watch``` z poziomu katalogu ```www```. Sprawia on, że po jakiejkolwiek zmianie w plikach ```.coffee``` z katalogu ```www/coffee/``` zmodyfikowany plik zostanie skompilowany do pliku ```.js```.
-
-Plik ```Gulpfile.coffee``` zawiera definicję zadań wykorzystywanych podczas developmentu. Służy do łatwiejszego i szybszego wykonywania częstych czynności, takich jak np. kompilacja plików źródłowych.
 
 ## Kompilacja ##
 
-### Przygotowanie do kompilacji ###
-
-Z poziomu katalogu głównego aplikacji wykonaj skrypty:
-```
-sudo npm install -g cordova
-```
-
-Następnie pobierz i i wypakuj Android SDK Tools
-```
-http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
-```
-
-Następnie wykonaj skrypt:
-```
-sudo apt-get install default-jdk
-```
-
-Dodaj do pliku ```.bashrc```, który znajduje się w Twoim katalogu domowym linijki:
-```
-export ANDROID_HOME=android_sdk_tools_path
-export PATH=${ANDROID_HOME}/tools:${PATH}
-```
-
-gdzie ```android_sdk_tools_path``` to ścieżka w postaci ```/home/user/Downloads/android-sdk-linux```.
-
-Wykonaj komendę:
-```
-source ~/.bashrc
-```
-
-Wykonaj komendę
-```
-android
-```
-
-następnie zaznacz pozycję "Android 4.4.2 (API 19)" oraz "Tools/Android SDK Build-tools (rev. 19.1)" po czym naciśnij "Install packages".
-
-Wykonaj komendę:
-```
-sudo apt-get install ant
-```
-
-### Kompilacja ###
-Z poziomu katalogu głównego aplikacji
-```
-cordova build android
-```
-Aplikacja gotowa do zainstalowania na urządzeniu Android znajduje się pod ścieżką:
-```
-platforms/android/ant-build/CordovaApp-debug.apk
-```
+Do uruchomienia aplikacji potrzebny będzie system z w/w rodziny systemów OSX z zainstalowanym środowiskiem Xcode i iOS SDK. Aby zbudować aplikację, należy otworzyć plik projektu, następnie z zakładki ```Projekt``` wybrać opcję ```Run```. Budowanie aplikacji na symulatorze skutkuje w jej ograniczonych możliwościach ze względu na to, ze symulator nie jest wyposażony w prawdziwe serwisy lokalizacji, a jedynie je emuluje.
