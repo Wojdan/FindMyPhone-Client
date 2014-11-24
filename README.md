@@ -8,9 +8,10 @@ Instrukcja została pomyślnie przetestowana na surowym systemie OS X 10.9.5
 
 Jest to aplikacja kliencka systemu służącego do śledzenia telefonów o nazwie **FindMyPhone** przeznaczona na platformę [iOS](http://pl.wikipedia.org/wiki/IOS).
 
-**TODO** [Demonstracja interfejsu](http://www.appdemostore.com/demo?id=5347878478282752)
+[Demonstracja interfejsu](http://invis.io/461R1ESJY)
+===========```
 [Repozytorium](https://bitbucket.org/zpi16ios/client/)
-
+==========
 Aplikacja:
 
 * powstała w języku [Objective-C](http://pl.wikipedia.org/wiki/Objective-C)
