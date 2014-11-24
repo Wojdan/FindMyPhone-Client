@@ -18,9 +18,9 @@ Aplikacja:
 * powstała przy użyciu środowiska (IDE) [Xcode 6.1](http://pl.wikipedia.org/wiki/Xcode)
 * wykorzystuje biblioteki [Cocoapods](http://guides.cocoapods.org/), głównie [AFNetworking](https://github.com/AFNetworking/AFNetworking) - do obsługi REST'owego API.
 
-![iOS Logo](http://mobirank.pl/wp-content/uploads/2013/06/ios-apple-logo.png)
-![Xcode Logo](http://upload.wikimedia.org/wikipedia/fr/d/da/Logo_xcode.png)
-![AFNetworking Logo](https://avatars0.githubusercontent.com/u/1181541?v=3&s=400)
+![iOS Logo](http://thexbmcguide.com/wp-content/uploads/2012/03/ios-logo.jpg)
+![Xcode Logo](https://devimages.apple.com.edgekey.net/assets/elements/icons/128x128/xcode.png)
+![AFNetworking Logo](https://lh3.googleusercontent.com/proxy/UbItKB_-DdOV5V4Y_Jlg_FRHw8qVM7t6QW3tGF2yHR7AJ8sJ4ZuP60676mRnJpFwJnZH2VdZkIJZgLi_Y84IjVEvkJwGf7kssyEj9dVaUa_NAP74Mn-xHrw=w120-h120)
 
 ## Wymagania przed rozpoczęciem pracy ##
 
