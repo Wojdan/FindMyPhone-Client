@@ -44,9 +44,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fillLoginUsingNotification:) name:REGISTER_SUCCESS_NOTIFICATION object:nil];
 
-    //Temporary
-    self.loginTextField.text = @"wojdanek@gmail.com";
-    self.passwordTextField.text = @"qwerty123";
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

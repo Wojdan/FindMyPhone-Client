@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  Kontroler służący do rejestracji użytkownika.
+ */
 @interface FMPRegisterViewController : UIViewController <UITextFieldDelegate>
 
 @end

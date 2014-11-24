@@ -268,7 +268,7 @@
                                                                      reuseIdentifier:@"identifier"];
     annotationView.canShowCallout = YES;
     annotationView.image = [self createAnnotationImageWithPercentageAge:ann.percentageAge selected:ann.selected];
-
+    [self.tableView reloadData];
     return annotationView;
 
 }

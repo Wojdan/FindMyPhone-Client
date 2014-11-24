@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  Kontroler wyświetlający listę zarejestrowanych urządzeń
+ */
 @interface FMPDevicesViewController : UITableViewController
 
 @end

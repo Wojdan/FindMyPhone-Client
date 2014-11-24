@@ -8,10 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * Kontroler sterujący przełączaniem innych kontrolerów dot. wybranego urządzenia
+ */
 @interface FMPDeviceViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
+/**
+ * Identifikator wybranego urządzenia
+ */
 @property (strong, nonatomic) NSNumber *deviceID;
+
+/**
+ * Dane wybranego urządzenia 
+ */
 @property (strong, nonatomic) NSDictionary *device;
+
+/**
+ * UISegmentedControl zmieniający widoki
+ */
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
 
 @end

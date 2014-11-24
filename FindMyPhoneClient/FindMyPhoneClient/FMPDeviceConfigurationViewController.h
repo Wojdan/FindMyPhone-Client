@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "FMPDeviceViewController.h"
 
+/**
+ * Kontroler do konfiguracji opisu urządzenia
+ */
 @interface FMPDeviceConfigurationViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSDictionary *device;

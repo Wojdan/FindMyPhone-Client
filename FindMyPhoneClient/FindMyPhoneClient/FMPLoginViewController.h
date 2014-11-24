@@ -10,6 +10,9 @@
 
 #define REGISTER_SUCCESS_NOTIFICATION @"Register-Succeeded-Notification"
 
+/**
+ *  Kontroler służący do logowania użytkownika.
+ */
 @interface FMPLoginViewController : UIViewController <UITextFieldDelegate>
 
 @end

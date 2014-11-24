@@ -9,9 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "FMPDeviceViewController.h"
 
+/**
+ * Kontroler do konfiguracji ustawień Anti-Thief
+ */
 @interface FMPATConfigurationViewController : UIViewController
 
+/**
+ * Dane wybranego urządzenia
+ */
 @property (strong, nonatomic) NSDictionary *device;
+
+/**
+ * Słaba referencja do kontrolera sterującego
+ */
 @property (weak, nonatomic) FMPDeviceViewController *deviceController;
 
 @end
