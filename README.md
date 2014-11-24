@@ -1,7 +1,7 @@
 ![FindMyPhone Logo](http://find-my-phone-api.herokuapp.com/static/img/logo.png)
 # Opis aplikacji wraz z instrukcją dot. developmentu oraz kompilacji #
 
-Instrukcja dotyczy dowolnego systemu z rodziny OS X od wersji Maverics wzwyż.
+Instrukcja dotyczy dowolnego systemu z rodziny OS X od wersji Mavericks wzwyż.
 Instrukcja została pomyślnie przetestowana na surowym systemie OS X 10.9.5
 
 ## Ogólnie o aplikacji ##
