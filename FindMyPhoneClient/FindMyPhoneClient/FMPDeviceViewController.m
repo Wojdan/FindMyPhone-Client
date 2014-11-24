@@ -9,6 +9,7 @@
 #import "FMPDeviceViewController.h"
 #import "FMPDeviceLocationViewController.h"
 #import "FMPDeviceConfigurationViewController.h"
+#import "FMPATConfigurationViewController.h"
 
 @interface FMPDeviceViewController ()
 
@@ -16,6 +17,7 @@
 
 @property (strong, nonatomic) FMPDeviceLocationViewController *deviceLocationVC;
 @property (strong, nonatomic) FMPDeviceConfigurationViewController *deviceConfigurationVC;
+@property (strong, nonatomic) FMPATConfigurationViewController *ATConfigurationVC;
 
 @end
 
@@ -41,12 +43,16 @@
     self.deviceConfigurationVC.device = self.device;
     self.deviceConfigurationVC.deviceController = self;
 
+    self.ATConfigurationVC = [[UIStoryboard storyboardWithName:@"ATConfigurationViewController" bundle:nil] instantiateInitialViewController];
+    self.ATConfigurationVC.device = self.device;
+    self.ATConfigurationVC.deviceController = self;
+
     [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     [self addChildViewController:self.pageController];
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
 
-    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"Locations",@"Configuration"]];
+    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"Locations",@"Device", @"AT Settings"]];
     segmentControl.selectedSegmentIndex = 0;
     [segmentControl addTarget:self action:@selector(segmentControlDidChangeValue:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = segmentControl;
@@ -61,8 +67,12 @@
         [self.pageController setViewControllers:@[self.deviceLocationVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished) {
 
         }];
-    } else {
+    } else if ([sender selectedSegmentIndex] == 1) {
         [self.pageController setViewControllers:@[self.deviceConfigurationVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished) {
+
+        }];
+    } else {
+        [self.pageController setViewControllers:@[self.ATConfigurationVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:^(BOOL finished) {
             
         }];
     }
@@ -72,6 +82,8 @@
 
     if ([viewController isEqual:self.deviceLocationVC]) {
         return self.deviceConfigurationVC;
+    } else if ([viewController isEqual:self.deviceConfigurationVC]) {
+        return self.ATConfigurationVC;
     }
 
     return nil;
@@ -81,6 +93,8 @@
 
     if ([viewController isEqual:self.deviceConfigurationVC]) {
         return self.deviceLocationVC;
+    } else if ([viewController isEqual:self.ATConfigurationVC]) {
+        return self.deviceConfigurationVC;
     }
 
     return nil;

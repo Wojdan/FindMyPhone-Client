@@ -48,8 +48,7 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD dismiss];
-        [self handleError:error];
+        [self handleError:error operationError:operation.responseObject];
         handler(NO, error);
 
     }];
@@ -82,8 +81,7 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD dismiss];
-        [self handleError:error];
+        [self handleError:error operationError:operation.responseObject];
         handler(NO, error);
     }];
 }
@@ -99,14 +97,12 @@
     [SVProgressHUD show];
     [[FMPApiController sharedInstance] POST:@"device" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        [SVProgressHUD dismiss];
         [SVProgressHUD showSuccessWithStatus:@"Device added successfully!"];
         handler(YES,nil);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD dismiss];
-        [self handleError:error];
+        [self handleError:error operationError:operation.responseObject];
         handler(NO, error);
     }];
 }
@@ -127,10 +123,31 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [SVProgressHUD dismiss];
-        [self handleError:error];
+        [self handleError:error operationError:operation.responseObject];
         handler(NO, error);
     }];
+}
+
++ (void)updateATSettingsForDeviceWithID:(NSInteger)dID email:(NSString*)email emailPeriod:(NSInteger)emailPeriod period:(NSInteger)period completionHandler:(void (^)(BOOL, NSError *))handler {
+
+    NSMutableDictionary *parameters = [@{
+                                         @"email" : email,
+                                         @"email_period"  : @(emailPeriod),
+                                         @"period" : @(period)
+                                         } mutableCopy];
+
+    [SVProgressHUD show];
+    [[FMPApiController sharedInstance] PUT:[NSString stringWithFormat:@"devices/%d/settings", dID] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [SVProgressHUD showSuccessWithStatus:@"Settings saved successfully!"];
+        handler(YES,nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [self handleError:error operationError:operation.responseObject];
+        handler(NO, error);
+    }];
+
 }
 
 + (void)getDevicesWithCompletionHandler:(void (^)(BOOL, NSArray*, NSError *))handler {
@@ -148,7 +165,7 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [self handleError:error];
+        [self handleError:error operationError:operation.responseObject];
         handler(NO, nil, error);
     }];
 
@@ -170,7 +187,30 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [self handleError:error];
+        [self handleError:error operationError:operation.responseObject];
+        handler(NO, nil, error);
+    }];
+    
+}
+
++ (void)getSettingsForDeviceWithId:(NSInteger)deviceID withCompletionHandler:(void (^)(BOOL, NSDictionary*, NSError *))handler {
+
+    NSString *path = [NSString stringWithFormat:@"devices/%d/settings", deviceID];
+    [SVProgressHUD showWithStatus:@"Getting current settings"];
+    [[FMPApiController sharedInstance] GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *settings = @{};
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            if ([((NSDictionary*)responseObject) objectForKey:@"settings"]) {
+                settings = [((NSDictionary*)responseObject) objectForKey:@"settings"];
+            }
+        }
+
+        handler(YES, settings, nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [self handleError:error operationError:operation.responseObject];
         handler(NO, nil, error);
     }];
     
@@ -193,7 +233,7 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
-        [self handleError:error];
+        [self handleError:error operationError:operation.responseObject];
         handler(NO, error);
         
     }];
@@ -209,7 +249,18 @@
     [AppDelegate showLoginViewController];
 }
 
-+ (void)handleError:(NSError*)error {
++ (void)handleError:(NSError*)error operationError:(NSString*)operationError {
+
+    if (operationError) {
+        if ([operationError isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = ((NSDictionary*)operationError)[@"errors"];
+            if ([[dic allKeys] firstObject]) {
+                NSString *errorMessage = dic[[dic allKeys][0]];
+                [SVProgressHUD showErrorWithStatus:errorMessage];
+                return;
+            }
+        }
+    }
 
     if (error.code == 403) {
         [self logout];

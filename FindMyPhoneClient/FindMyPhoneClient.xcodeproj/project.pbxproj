@@ -10,6 +10,8 @@
 		27F7C6E48221409F9F007F2E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A98B3ADB08A543188EAB79A6 /* libPods.a */; };
 		8490618A19FC2582005509A6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490618919FC2582005509A6 /* icon@2x.png */; };
 		8490618D19FD3535005509A6 /* FMPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490618C19FD3535005509A6 /* FMPHelpers.m */; };
+		849BE9FE1A22C433009A5DE5 /* FMPATConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BE9FD1A22C433009A5DE5 /* FMPATConfigurationViewController.m */; };
+		849BEA001A22C445009A5DE5 /* ATConfigurationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849BE9FF1A22C445009A5DE5 /* ATConfigurationViewController.storyboard */; };
 		849DA8B619FBD6A300477911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B519FBD6A300477911 /* main.m */; };
 		849DA8B919FBD6A300477911 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B819FBD6A300477911 /* AppDelegate.m */; };
 		849DA8C119FBD6A300477911 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8C019FBD6A300477911 /* Images.xcassets */; };
@@ -52,6 +54,9 @@
 		8490618919FC2582005509A6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		8490618B19FD3535005509A6 /* FMPHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPHelpers.h; sourceTree = "<group>"; };
 		8490618C19FD3535005509A6 /* FMPHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPHelpers.m; sourceTree = "<group>"; };
+		849BE9FC1A22C433009A5DE5 /* FMPATConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPATConfigurationViewController.h; sourceTree = "<group>"; };
+		849BE9FD1A22C433009A5DE5 /* FMPATConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPATConfigurationViewController.m; sourceTree = "<group>"; };
+		849BE9FF1A22C445009A5DE5 /* ATConfigurationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ATConfigurationViewController.storyboard; sourceTree = "<group>"; };
 		849DA8B019FBD6A300477911 /* FindMyPhoneClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyPhoneClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849DA8B419FBD6A300477911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849DA8B519FBD6A300477911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +132,16 @@
 				8490618C19FD3535005509A6 /* FMPHelpers.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		849BE9FB1A22C406009A5DE5 /* AT Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				849BE9FC1A22C433009A5DE5 /* FMPATConfigurationViewController.h */,
+				849BE9FD1A22C433009A5DE5 /* FMPATConfigurationViewController.m */,
+				849BE9FF1A22C445009A5DE5 /* ATConfigurationViewController.storyboard */,
+			);
+			name = "AT Configuration";
 			sourceTree = "<group>";
 		};
 		849DA8A719FBD6A200477911 = {
@@ -296,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				84C80B581A06D70300313525 /* Page Controller */,
+				849BE9FB1A22C406009A5DE5 /* AT Configuration */,
 				84C80B671A06EFC800313525 /* Device Configuration */,
 				84C80B5F1A06D87100313525 /* Device Location */,
 			);
@@ -425,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849BEA001A22C445009A5DE5 /* ATConfigurationViewController.storyboard in Resources */,
 				849DA8DF19FBD8D200477911 /* RegisterViewController.storyboard in Resources */,
 				849DA8C419FBD6A300477911 /* LaunchScreen.xib in Resources */,
 				84C80B631A06EF9300313525 /* DeviceConfigurationViewController.storyboard in Resources */,
@@ -501,6 +518,7 @@
 				8490618D19FD3535005509A6 /* FMPHelpers.m in Sources */,
 				849DA8E419FBE21100477911 /* FMPLoginViewController.m in Sources */,
 				849DA8F219FBEBD900477911 /* FMPTextField.m in Sources */,
+				849BE9FE1A22C433009A5DE5 /* FMPATConfigurationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
