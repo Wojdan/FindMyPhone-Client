@@ -1,47 +1,34 @@
 ![FindMyPhone Logo](http://find-my-phone-api.herokuapp.com/static/img/logo.png)
 # Opis aplikacji wraz z instrukcją dot. developmentu oraz kompilacji #
 
-Instrukcja dotyczy dowolnego systemu unixowego z rodziny Debian.
-Instrukcja została pomyślnie przetestowana na surowym systemie Ubuntu 14.10.
+Instrukcja dotyczy dowolnego systemu z rodziny OS X od wersji Maverics wzwyż.
+Instrukcja została pomyślnie przetestowana na surowym systemie OS X 10.9.5
 
 ## Ogólnie o aplikacji ##
 
-Jest to aplikacja kliencka systemu służącego do śledzenia telefonów o nazwie **FindMyPhone** przeznaczona na platformę [Android](http://pl.wikipedia.org/wiki/Android_%28system_operacyjny%29).
+Jest to aplikacja kliencka systemu służącego do śledzenia telefonów o nazwie **FindMyPhone** przeznaczona na platformę [iOS](http://pl.wikipedia.org/wiki/IOS).
 
-[Demonstracja interfejsu](http://www.appdemostore.com/demo?id=5347878478282752)
-
-[Repozytorium](https://bitbucket.org/zpi16/android-client/)
+**TODO** [Demonstracja interfejsu](http://www.appdemostore.com/demo?id=5347878478282752)
+**TODO** [Repozytorium](https://bitbucket.org/zpi16/android-client/)
 
 Aplikacja:
 
-* powstała w języku [CoffeeScript](http://coffeescript.org/) (kompilowanym do języka [JavaScript](http://pl.wikipedia.org/wiki/JavaScript))
-* jest przeznaczona na platformę [Android](http://pl.wikipedia.org/wiki/Android_%28system_operacyjny%29)
-* powstała przy użyciu platformy [Node.js](http://nodejs.org/)
-* jest oparta o framework [Marionette.js](http://marionettejs.com/)
-* jest jest kompilowana do pliku .apk (plik instalacyjny systemu Android) przy użyciu platformy [Cordova](http://cordova.apache.org/)
-* wykorzystuje program [Gulp](http://gulpjs.com/) do automatyzacji zadań podczas developmentu
+* powstała w języku [Objective-C](http://pl.wikipedia.org/wiki/Objective-C)
+* jest przeznaczona na platformę [iOS](http://pl.wikipedia.org/wiki/IOS)
+* powstała przy użyciu środowiska (IDE) [Xcode 6.1](http://pl.wikipedia.org/wiki/Xcode)
+* wykorzystuje biblioteki [Cocoapods](http://guides.cocoapods.org/), głównie [AFNetworking](https://github.com/AFNetworking/AFNetworking) - do obsługi REST'owego API.
 
-![Android Logo](https://developers.google.com/tv/images/android-logo.png)
-![CoffeeScript Logo](http://justdevign.com.au/wp-content/uploads/2014/08/CoffeeScript_Logo_128.png)
-![NodeJS Logo](https://www.clever-cloud.com/doc/assets/images/128nodejs.png)
-![Marionette.js Logo](http://tweetbuzz.jp/shared/entryimage/516704389782263.jpg)
-![Cordova Logo](http://cordova.apache.org/images/cordova_128.png)
+![iOS Logo](http://mobirank.pl/wp-content/uploads/2013/06/ios-apple-logo.png)
+![Xcode Logo](http://upload.wikimedia.org/wikipedia/fr/d/da/Logo_xcode.png)
+![AFNetworking Logo](https://avatars0.githubusercontent.com/u/1181541?v=3&s=400)
 
 ## Wymagania przed rozpoczęciem pracy ##
 
 Przed przystąpieniem do wdrażania instrukcji należy zainstalować:
 
-* Platformę node.js
+* Platformę gem cocoapods
 ```
-sudo apt-get install curl
-sudo su
-curl -sL https://deb.nodesource.com/setup | bash -
-apt-get install -y nodejs
-```
-
-* Gulp (task manager) - przydatne w przypadku developmentu
-```
-sudo npm install --global gulp
+sudo gem install cocoapods
 ```
 
 ## Instalacja potrzebnych bibliotek ##
