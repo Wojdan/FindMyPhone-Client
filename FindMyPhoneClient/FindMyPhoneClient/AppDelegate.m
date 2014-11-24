@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "SVProgressHUD.h"
+#import "FMPApiController.h"
+#import "FMPDefaultsController.h"
+#import "FMPHelpers.h"
 
 @interface AppDelegate ()
 
@@ -16,30 +20,56 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [self _setupAppearance];
+
+    if ([FMPDefaultsController getToken]) {
+        NSLog(@"Można ominąć logowanie!");
+    }
+
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)_setupAppearance {
+
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.75]];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+
+    [[UINavigationBar appearance] setBarTintColor:FMP_GREEN_COLOR];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
++ (void)setRootViewController:(UIViewController*)viewController {
+
+    NSParameterAssert(viewController);
+
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    UIViewController *oldRootViewController = window.rootViewController;
+
+    [oldRootViewController addChildViewController:viewController];
+    [oldRootViewController.view addSubview:viewController.view];
+    [viewController didMoveToParentViewController:oldRootViewController];
+
+    viewController.view.alpha = 0.0;
+    [oldRootViewController.view bringSubviewToFront:viewController.view];
+
+    [UIView transitionWithView:window duration:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        viewController.view.alpha = 1.0;
+
+    } completion:^(BOOL finished) {
+        [viewController willMoveToParentViewController:nil];
+        [viewController.view removeFromSuperview];
+        [viewController removeFromParentViewController];
+        window.rootViewController = viewController;
+    }];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
++ (void)showLoginViewController{
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
+    UIViewController *loginViewController = [[UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil] instantiateInitialViewController];
+    [AppDelegate setRootViewController:loginViewController];
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yxp-qR-NRw">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Device Location View Controller-->
+        <scene sceneID="8rv-FD-eng">
+            <objects>
+                <viewController id="Yxp-qR-NRw" customClass="FMPDeviceLocationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IH3-Zk-bnc"/>
+                        <viewControllerLayoutGuide type="bottom" id="sUA-Gv-1I5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s33-zz-DFJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjD-Nc-1od">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Yxp-qR-NRw" id="LkA-Ht-CMh"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMb-Pi-cdP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="transparentButtonClicked:" destination="Yxp-qR-NRw" eventType="touchUpInside" id="p0M-U4-u5E"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugz-JK-hWO">
+                                <rect key="frame" x="30" y="204" width="260" height="300"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Qmh-7J-8Jr">
+                                        <rect key="frame" x="0.0" y="44" width="260" height="256"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Yxp-qR-NRw" id="zvD-vn-sXI"/>
+                                            <outlet property="delegate" destination="Yxp-qR-NRw" id="A5X-7V-Mck"/>
+                                        </connections>
+                                    </tableView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgc-Ny-Vsx">
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="lHa-Ku-f6r"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="GPc-BM-pfG"/>
+                                            <barButtonItem systemItem="search" id="tBv-ff-ISh">
+                                                <connections>
+                                                    <action selector="zoomButtonClicked:" destination="Yxp-qR-NRw" id="9yW-9s-Kh8"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="19A-gQ-t9r"/>
+                                        </items>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="barTintColor" red="0.0" green="0.56470588235294117" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </toolbar>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-Km-4rz">
+                                        <rect key="frame" x="87" y="0.0" width="86" height="44"/>
+                                        <color key="backgroundColor" white="0.18142677919708028" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Eu9-1x-ZKJ"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="aPU-vD-gYi"/>
+                                            <barButtonItem systemItem="refresh" id="EO9-f1-9Dx">
+                                                <connections>
+                                                    <action selector="refreshButtonClicked:" destination="Yxp-qR-NRw" id="bjT-Wh-9Z6"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="Y8W-Xm-cTb"/>
+                                        </items>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="barTintColor" red="0.0" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </toolbar>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-gp-VCP">
+                                        <rect key="frame" x="173" y="0.0" width="87" height="44"/>
+                                        <color key="backgroundColor" white="0.1814267792" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ceo-fT-E2v"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="ZOZ-OJ-ul2"/>
+                                            <barButtonItem systemItem="action" id="2Vq-vS-pNO">
+                                                <connections>
+                                                    <action selector="toggleButtonClicked:" destination="Yxp-qR-NRw" id="gdJ-k9-gN2"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="aTG-fk-3Hk"/>
+                                        </items>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="barTintColor" red="0.0" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Qmh-7J-8Jr" secondAttribute="trailing" id="4Vt-9d-ybm"/>
+                                    <constraint firstItem="Qmh-7J-8Jr" firstAttribute="leading" secondItem="Ugz-JK-hWO" secondAttribute="leading" id="ExF-Tt-L4B"/>
+                                    <constraint firstItem="Qmh-7J-8Jr" firstAttribute="width" secondItem="qgc-Ny-Vsx" secondAttribute="width" multiplier="3" id="Nqq-nH-371"/>
+                                    <constraint firstItem="qgc-Ny-Vsx" firstAttribute="leading" secondItem="Qmh-7J-8Jr" secondAttribute="leading" id="Poe-Kw-bjA"/>
+                                    <constraint firstItem="qgc-Ny-Vsx" firstAttribute="top" secondItem="Ugz-JK-hWO" secondAttribute="top" id="Puz-4c-rFh"/>
+                                    <constraint firstItem="Qmh-7J-8Jr" firstAttribute="top" secondItem="LBL-Km-4rz" secondAttribute="bottom" id="RZ8-Rr-zIq"/>
+                                    <constraint firstItem="LBL-Km-4rz" firstAttribute="width" secondItem="qgc-Ny-Vsx" secondAttribute="width" id="ZNQ-fU-Rdl"/>
+                                    <constraint firstItem="Qmh-7J-8Jr" firstAttribute="top" secondItem="qgc-Ny-Vsx" secondAttribute="bottom" id="gHt-Xc-Xz1"/>
+                                    <constraint firstItem="LBL-Km-4rz" firstAttribute="width" secondItem="4hF-gp-VCP" secondAttribute="width" id="ifS-xA-TyZ"/>
+                                    <constraint firstItem="LBL-Km-4rz" firstAttribute="leading" secondItem="qgc-Ny-Vsx" secondAttribute="trailing" id="lE8-Sk-QhI"/>
+                                    <constraint firstAttribute="height" constant="300" id="nJd-qm-Xnq"/>
+                                    <constraint firstItem="Qmh-7J-8Jr" firstAttribute="top" secondItem="4hF-gp-VCP" secondAttribute="bottom" id="ooI-0B-08z"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qmh-7J-8Jr" secondAttribute="bottom" id="pMD-8i-JVq"/>
+                                    <constraint firstItem="4hF-gp-VCP" firstAttribute="leading" secondItem="LBL-Km-4rz" secondAttribute="trailing" id="xqw-Rd-9Kp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EjD-Nc-1od" secondAttribute="trailing" id="DZu-1o-wzs"/>
+                            <constraint firstItem="sUA-Gv-1I5" firstAttribute="top" secondItem="DMb-Pi-cdP" secondAttribute="bottom" id="EfY-2H-x2F"/>
+                            <constraint firstItem="sUA-Gv-1I5" firstAttribute="top" secondItem="Ugz-JK-hWO" secondAttribute="bottom" id="H8t-jX-ylT"/>
+                            <constraint firstItem="Ugz-JK-hWO" firstAttribute="leading" secondItem="s33-zz-DFJ" secondAttribute="leading" constant="30" id="Kt8-oZ-BLI"/>
+                            <constraint firstItem="DMb-Pi-cdP" firstAttribute="top" secondItem="IH3-Zk-bnc" secondAttribute="bottom" id="RIZ-L7-RPD"/>
+                            <constraint firstItem="sUA-Gv-1I5" firstAttribute="top" secondItem="EjD-Nc-1od" secondAttribute="bottom" id="Ulo-NI-FVh"/>
+                            <constraint firstAttribute="trailing" secondItem="Ugz-JK-hWO" secondAttribute="trailing" constant="30" id="WU7-2L-dqQ"/>
+                            <constraint firstAttribute="trailing" secondItem="DMb-Pi-cdP" secondAttribute="trailing" id="atC-9j-nvw"/>
+                            <constraint firstItem="EjD-Nc-1od" firstAttribute="top" secondItem="IH3-Zk-bnc" secondAttribute="bottom" id="o6r-0c-MSZ"/>
+                            <constraint firstItem="DMb-Pi-cdP" firstAttribute="leading" secondItem="s33-zz-DFJ" secondAttribute="leading" id="o8D-r5-0XW"/>
+                            <constraint firstItem="EjD-Nc-1od" firstAttribute="leading" secondItem="s33-zz-DFJ" secondAttribute="leading" id="wJg-Au-spJ"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="EjD-Nc-1od" id="rHV-xx-bTm"/>
+                        <outlet property="menuConstraint" destination="nJd-qm-Xnq" id="WUp-U7-95b"/>
+                        <outlet property="menuContainerView" destination="Ugz-JK-hWO" id="8KP-W4-mKe"/>
+                        <outlet property="tableView" destination="Qmh-7J-8Jr" id="a9E-ze-xX8"/>
+                        <outlet property="toggleButton" destination="2Vq-vS-pNO" id="TQS-CX-Ulh"/>
+                        <outlet property="transparentButton" destination="DMb-Pi-cdP" id="Wp7-sw-RaJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dF2-DL-eMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="254"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

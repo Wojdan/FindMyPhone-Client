@@ -1,33 +1,28 @@
 //
-//  FMPLoginViewController.m
+//  FMPDeviceConfigurationViewController.m
 //  FindMyPhoneClient
 //
-//  Created by Wojdan on 25.10.2014.
+//  Created by Wojdan on 03.11.2014.
 //  Copyright (c) 2014 wojdan. All rights reserved.
 //
 
-#import "AppDelegate.h"
-
-#import "FMPLoginViewController.h"
-#import "FMPRegisterViewController.h"
-#import "FMPHelpers.h"
+#import "FMPDeviceConfigurationViewController.h"
+#import "SVProgressHUD.h"
 #import "FMPApiController.h"
 
-#import "SVProgressHUD.h"
-
-@interface FMPLoginViewController ()
+@interface FMPDeviceConfigurationViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView* scrollableView;
 @property (weak, nonatomic) IBOutlet UIScrollView* scrollView;
-@property (weak, nonatomic) IBOutlet UITextField* loginTextField;
-@property (weak, nonatomic) IBOutlet UITextField* passwordTextField;
-@property (weak, nonatomic) IBOutlet UIButton* signInButton;
-@property (weak, nonatomic) IBOutlet UIButton* registerButton;
+@property (weak, nonatomic) IBOutlet UITextField* deviceNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField* deviceDescriptionTextField;
+@property (weak, nonatomic) IBOutlet UITextField* deviceIDTextField;
+@property (weak, nonatomic) IBOutlet UIButton* submitButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint* bottomSpaceConstraint;
 
 @end
 
-@implementation FMPLoginViewController
+@implementation FMPDeviceConfigurationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +30,18 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [self.view addGestureRecognizer:tapGesture];
 
+    [self resetChanges];
+}
+
+- (void)resetChanges {
+
+    self.deviceIDTextField.text = self.device[@"device_id"];
+    self.deviceIDTextField.enabled = NO;
+    self.deviceNameTextField.placeholder = self.device[@"name"];
+    self.deviceDescriptionTextField.placeholder = self.device[@"description"];
+
+    self.deviceNameTextField.text = @"";
+    self.deviceDescriptionTextField.text = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -42,14 +49,17 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fillLoginUsingNotification:) name:REGISTER_SUCCESS_NOTIFICATION object:nil];
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.deviceController.segmentedControl.selectedSegmentIndex = 1;
 }
 
 - (void)dealloc {
@@ -60,13 +70,6 @@
 
 - (void)dismissKeyboard:(id)sender {
     [self.view endEditing:YES];
-}
-
-- (void)fillLoginUsingNotification:(NSNotification*)notification {
-
-    self.loginTextField.text = notification.userInfo[@"email"] ? : @"";
-    self.passwordTextField.text = notification.userInfo[@"password"] ? : @"";
-
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification {
@@ -107,38 +110,9 @@
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
         [self.view layoutIfNeeded];
     } completion:nil];
-    
+
 }
 
-#pragma mark - Handful methods
-
-- (BOOL)loginFormValid {
-
-    NSString *errorMessage;
-    if (self.loginTextField.text.length == 0) {
-        [FMPHelpers shakeView:self.loginTextField showingBorder:YES];
-        errorMessage = @"Login or password is missing.";
-    }
-
-    if (self.passwordTextField.text.length == 0) {
-        [FMPHelpers shakeView:self.passwordTextField showingBorder:YES];
-        errorMessage = @"Login or password is missing.";
-    }
-
-    if (errorMessage) {
-        [SVProgressHUD showErrorWithStatus:errorMessage];
-        return NO;
-    }
-
-    if (![FMPHelpers validateEmail:self.loginTextField.text]) {
-        errorMessage = @"Incorrect email address.";
-        [FMPHelpers shakeView:self.loginTextField showingBorder:YES];
-        [SVProgressHUD showErrorWithStatus:errorMessage];
-        return NO;
-    }
-
-    return YES;
-}
 
 #pragma mark - UITextFieldDelegate
 
@@ -151,8 +125,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 
-    if ([textField isEqual:self.loginTextField]) {
-        [self.passwordTextField becomeFirstResponder];
+    if ([textField isEqual:self.deviceNameTextField]) {
+        [self.deviceDescriptionTextField becomeFirstResponder];
     }
     else {
         [textField resignFirstResponder];
@@ -167,37 +141,55 @@
     return YES;
 }
 
+
 #pragma mark - IBActions
 
-- (IBAction)registerButtonClicked:(id)sender {
+- (IBAction)submitButtonClicked:(id)sender {
 
-    FMPRegisterViewController *registerVC = [[UIStoryboard storyboardWithName:@"RegisterViewController" bundle:nil] instantiateInitialViewController];
-
-    [self presentViewController:registerVC animated:YES completion:nil];
-
-}
-
-- (IBAction)signInButtonClicked:(id)sender {
-
-    if (![self loginFormValid]) {
+    if (self.deviceIDTextField.text.length == 0 && self.deviceNameTextField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"No changes commited!"];
         return;
     }
 
-    [FMPApiController loginWithEmailAddress:self.loginTextField.text password:self.passwordTextField.text completionHandler:^(BOOL success, NSError *error) {
+    NSString *newName = self.deviceNameTextField.text.length > 3 ? self.deviceNameTextField.text : self.deviceNameTextField.placeholder;
+    NSString *newDesc = self.deviceDescriptionTextField.text.length > 3 ? self.deviceDescriptionTextField.text : self.deviceDescriptionTextField.placeholder;
+
+    [FMPApiController updateDeviceWithID:self.device[@"id"] name:newName description:newDesc vendorID:self.deviceIDTextField.text completionHandler:^(BOOL success, NSError *error) {
 
         if (success) {
+            [SVProgressHUD showSuccessWithStatus:@"Device updated"];
+            [self.device setValue:newName forKey:@"name"];
+            [self.device setValue:newDesc forKey:@"description"];
+            [self resetChanges];
 
-
-            UIViewController *devicesVC = [[UIStoryboard storyboardWithName:@"DevicesViewController" bundle:nil] instantiateInitialViewController];
-            [AppDelegate setRootViewController:devicesVC ? : [UIViewController new]];
-            
-            NSLog(@"Zalogowono");
-
-            [self.view endEditing:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh-Devices" object:nil];
         }
-        
-    }];
 
+    }];
+    
+}
+- (IBAction)deregisterButtonClicked:(id)sender {
+
+    [[[UIAlertView alloc] initWithTitle:@"" message:@"This device is to be deregistered. You won't be able to  receive its location anymore. Are you sure you want to delete it?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil] show];
+
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        [FMPApiController deregisterDeviceWithID:self.device[@"id"] completionHandler:^(BOOL deregistered, NSError *error) {
+
+            if (deregistered) {
+                [self.deviceController.navigationController popToRootViewControllerAnimated:YES];
+            }
+            
+        }];
+    }
+
+}
+
+- (IBAction)cancelButtonClicked:(id)sender {
+    [self resetChanges];
 }
 
 @end

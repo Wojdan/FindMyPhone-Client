@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27F7C6E48221409F9F007F2E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A98B3ADB08A543188EAB79A6 /* libPods.a */; };
+		8490618A19FC2582005509A6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490618919FC2582005509A6 /* icon@2x.png */; };
+		8490618D19FD3535005509A6 /* FMPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490618C19FD3535005509A6 /* FMPHelpers.m */; };
+		849BE9FE1A22C433009A5DE5 /* FMPATConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BE9FD1A22C433009A5DE5 /* FMPATConfigurationViewController.m */; };
+		849BEA001A22C445009A5DE5 /* ATConfigurationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849BE9FF1A22C445009A5DE5 /* ATConfigurationViewController.storyboard */; };
 		849DA8B619FBD6A300477911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B519FBD6A300477911 /* main.m */; };
 		849DA8B919FBD6A300477911 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8B819FBD6A300477911 /* AppDelegate.m */; };
 		849DA8C119FBD6A300477911 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8C019FBD6A300477911 /* Images.xcassets */; };
@@ -18,8 +23,21 @@
 		849DA8E819FBE22B00477911 /* FMPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8E719FBE22B00477911 /* FMPRegisterViewController.m */; };
 		849DA8ED19FBEB2600477911 /* FMPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8EC19FBEB2600477911 /* FMPButton.m */; };
 		849DA8F219FBEBD900477911 /* FMPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA8F119FBEBD900477911 /* FMPTextField.m */; };
-		849DA8F519FBF88A00477911 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8F419FBF88A00477911 /* logo@2x.png */; };
-		849DA8FF19FC0AE900477911 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849DA8FE19FC0AE900477911 /* close@2x.png */; };
+		849DA90319FC11A800477911 /* FMPApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DA90219FC11A800477911 /* FMPApiController.m */; };
+		849E5EA51A03C0E80083E46D /* FMPDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849E5EA41A03C0E80083E46D /* FMPDefaultsController.m */; };
+		849E5EAC1A03D3460083E46D /* FMPDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849E5EAB1A03D3460083E46D /* FMPDevicesViewController.m */; };
+		849E5EAE1A03D35A0083E46D /* DevicesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849E5EAD1A03D35A0083E46D /* DevicesViewController.storyboard */; };
+		849E5EB11A03D92D0083E46D /* FMPNewDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849E5EB01A03D92D0083E46D /* FMPNewDeviceViewController.m */; };
+		849E5EB41A03D97F0083E46D /* NewDeviceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849E5EB31A03D97F0083E46D /* NewDeviceViewController.storyboard */; };
+		84BF71691A0578F30032D235 /* FMPDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF71681A0578F30032D235 /* FMPDeviceCell.m */; };
+		84C80B521A06C40D00313525 /* FMPDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C80B511A06C40D00313525 /* FMPDeviceViewController.m */; };
+		84C80B571A06CC3300313525 /* DeviceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C80B561A06CC3300313525 /* DeviceViewController.storyboard */; };
+		84C80B5B1A06D72B00313525 /* FMPDeviceLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C80B5A1A06D72B00313525 /* FMPDeviceLocationViewController.m */; };
+		84C80B5D1A06D75400313525 /* DeviceLocationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C80B5C1A06D75400313525 /* DeviceLocationViewController.storyboard */; };
+		84C80B611A06D8E100313525 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C80B601A06D8E100313525 /* MapKit.framework */; };
+		84C80B631A06EF9300313525 /* DeviceConfigurationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C80B621A06EF9300313525 /* DeviceConfigurationViewController.storyboard */; };
+		84C80B661A06EFBC00313525 /* FMPDeviceConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C80B651A06EFBC00313525 /* FMPDeviceConfigurationViewController.m */; };
+		84E7894D1A12713D00786031 /* FMPPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7894C1A12713D00786031 /* FMPPointAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8490618919FC2582005509A6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		8490618B19FD3535005509A6 /* FMPHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPHelpers.h; sourceTree = "<group>"; };
+		8490618C19FD3535005509A6 /* FMPHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPHelpers.m; sourceTree = "<group>"; };
+		849BE9FC1A22C433009A5DE5 /* FMPATConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPATConfigurationViewController.h; sourceTree = "<group>"; };
+		849BE9FD1A22C433009A5DE5 /* FMPATConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPATConfigurationViewController.m; sourceTree = "<group>"; };
+		849BE9FF1A22C445009A5DE5 /* ATConfigurationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ATConfigurationViewController.storyboard; sourceTree = "<group>"; };
 		849DA8B019FBD6A300477911 /* FindMyPhoneClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyPhoneClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849DA8B419FBD6A300477911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849DA8B519FBD6A300477911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,8 +77,32 @@
 		849DA8EC19FBEB2600477911 /* FMPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPButton.m; sourceTree = "<group>"; };
 		849DA8F019FBEBD900477911 /* FMPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPTextField.h; sourceTree = "<group>"; };
 		849DA8F119FBEBD900477911 /* FMPTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPTextField.m; sourceTree = "<group>"; };
-		849DA8F419FBF88A00477911 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
-		849DA8FE19FC0AE900477911 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		849DA90119FC11A800477911 /* FMPApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPApiController.h; sourceTree = "<group>"; };
+		849DA90219FC11A800477911 /* FMPApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPApiController.m; sourceTree = "<group>"; };
+		849E5EA31A03C0E80083E46D /* FMPDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPDefaultsController.h; sourceTree = "<group>"; };
+		849E5EA41A03C0E80083E46D /* FMPDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPDefaultsController.m; sourceTree = "<group>"; };
+		849E5EAA1A03D3460083E46D /* FMPDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPDevicesViewController.h; sourceTree = "<group>"; };
+		849E5EAB1A03D3460083E46D /* FMPDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPDevicesViewController.m; sourceTree = "<group>"; };
+		849E5EAD1A03D35A0083E46D /* DevicesViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DevicesViewController.storyboard; sourceTree = "<group>"; };
+		849E5EAF1A03D92D0083E46D /* FMPNewDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPNewDeviceViewController.h; sourceTree = "<group>"; };
+		849E5EB01A03D92D0083E46D /* FMPNewDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPNewDeviceViewController.m; sourceTree = "<group>"; };
+		849E5EB31A03D97F0083E46D /* NewDeviceViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewDeviceViewController.storyboard; sourceTree = "<group>"; };
+		84BF71671A0578F30032D235 /* FMPDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPDeviceCell.h; sourceTree = "<group>"; };
+		84BF71681A0578F30032D235 /* FMPDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPDeviceCell.m; sourceTree = "<group>"; };
+		84C80B501A06C40D00313525 /* FMPDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPDeviceViewController.h; sourceTree = "<group>"; };
+		84C80B511A06C40D00313525 /* FMPDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPDeviceViewController.m; sourceTree = "<group>"; };
+		84C80B561A06CC3300313525 /* DeviceViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceViewController.storyboard; sourceTree = "<group>"; };
+		84C80B591A06D72B00313525 /* FMPDeviceLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPDeviceLocationViewController.h; sourceTree = "<group>"; };
+		84C80B5A1A06D72B00313525 /* FMPDeviceLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPDeviceLocationViewController.m; sourceTree = "<group>"; };
+		84C80B5C1A06D75400313525 /* DeviceLocationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceLocationViewController.storyboard; sourceTree = "<group>"; };
+		84C80B601A06D8E100313525 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		84C80B621A06EF9300313525 /* DeviceConfigurationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceConfigurationViewController.storyboard; sourceTree = "<group>"; };
+		84C80B641A06EFBC00313525 /* FMPDeviceConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPDeviceConfigurationViewController.h; sourceTree = "<group>"; };
+		84C80B651A06EFBC00313525 /* FMPDeviceConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPDeviceConfigurationViewController.m; sourceTree = "<group>"; };
+		84E7894B1A12713D00786031 /* FMPPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMPPointAnnotation.h; sourceTree = "<group>"; };
+		84E7894C1A12713D00786031 /* FMPPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMPPointAnnotation.m; sourceTree = "<group>"; };
+		A98B3ADB08A543188EAB79A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA60BF9866CD402FBE62B41C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C80B611A06D8E100313525 /* MapKit.framework in Frameworks */,
+				27F7C6E48221409F9F007F2E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +125,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8490618E19FD353B005509A6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8490618B19FD3535005509A6 /* FMPHelpers.h */,
+				8490618C19FD3535005509A6 /* FMPHelpers.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		849BE9FB1A22C406009A5DE5 /* AT Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				849BE9FC1A22C433009A5DE5 /* FMPATConfigurationViewController.h */,
+				849BE9FD1A22C433009A5DE5 /* FMPATConfigurationViewController.m */,
+				849BE9FF1A22C445009A5DE5 /* ATConfigurationViewController.storyboard */,
+			);
+			name = "AT Configuration";
+			sourceTree = "<group>";
+		};
 		849DA8A719FBD6A200477911 = {
 			isa = PBXGroup;
 			children = (
 				849DA8B219FBD6A300477911 /* FindMyPhoneClient */,
 				849DA8CC19FBD6A300477911 /* FindMyPhoneClientTests */,
 				849DA8B119FBD6A300477911 /* Products */,
+				EA60BF9866CD402FBE62B41C /* Pods.xcconfig */,
+				A877A3E1913D4355B958E50C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,8 +169,10 @@
 			children = (
 				849DA8B719FBD6A300477911 /* AppDelegate.h */,
 				849DA8B819FBD6A300477911 /* AppDelegate.m */,
-				849DA8EA19FBEB0200477911 /* Subclasses */,
+				849DA90019FC114300477911 /* API and Model */,
 				849DA8D919FBD85D00477911 /* ViewControllers */,
+				849DA8EA19FBEB0200477911 /* Subclasses */,
+				8490618E19FD353B005509A6 /* Helpers */,
 				849DA8F319FBF87600477911 /* gfx */,
 				849DA8C019FBD6A300477911 /* Images.xcassets */,
 				849DA8C219FBD6A300477911 /* LaunchScreen.xib */,
@@ -137,6 +210,9 @@
 		849DA8D919FBD85D00477911 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84C80B531A06C41500313525 /* Single Device */,
+				849E5EB21A03D9380083E46D /* New Device */,
+				849E5EA61A03D06F0083E46D /* Devices */,
 				849DA8E919FBE23300477911 /* Register */,
 				849DA8E519FBE21800477911 /* Login */,
 			);
@@ -193,10 +269,94 @@
 		849DA8F319FBF87600477911 /* gfx */ = {
 			isa = PBXGroup;
 			children = (
-				849DA8F419FBF88A00477911 /* logo@2x.png */,
-				849DA8FE19FC0AE900477911 /* close@2x.png */,
+				8490618919FC2582005509A6 /* icon@2x.png */,
 			);
 			name = gfx;
+			sourceTree = "<group>";
+		};
+		849DA90019FC114300477911 /* API and Model */ = {
+			isa = PBXGroup;
+			children = (
+				849DA90119FC11A800477911 /* FMPApiController.h */,
+				849DA90219FC11A800477911 /* FMPApiController.m */,
+				849E5EA31A03C0E80083E46D /* FMPDefaultsController.h */,
+				849E5EA41A03C0E80083E46D /* FMPDefaultsController.m */,
+			);
+			name = "API and Model";
+			sourceTree = "<group>";
+		};
+		849E5EA61A03D06F0083E46D /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				849E5EAA1A03D3460083E46D /* FMPDevicesViewController.h */,
+				849E5EAB1A03D3460083E46D /* FMPDevicesViewController.m */,
+				849E5EAD1A03D35A0083E46D /* DevicesViewController.storyboard */,
+				84BF71671A0578F30032D235 /* FMPDeviceCell.h */,
+				84BF71681A0578F30032D235 /* FMPDeviceCell.m */,
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
+		849E5EB21A03D9380083E46D /* New Device */ = {
+			isa = PBXGroup;
+			children = (
+				849E5EAF1A03D92D0083E46D /* FMPNewDeviceViewController.h */,
+				849E5EB01A03D92D0083E46D /* FMPNewDeviceViewController.m */,
+				849E5EB31A03D97F0083E46D /* NewDeviceViewController.storyboard */,
+			);
+			name = "New Device";
+			sourceTree = "<group>";
+		};
+		84C80B531A06C41500313525 /* Single Device */ = {
+			isa = PBXGroup;
+			children = (
+				84C80B581A06D70300313525 /* Page Controller */,
+				849BE9FB1A22C406009A5DE5 /* AT Configuration */,
+				84C80B671A06EFC800313525 /* Device Configuration */,
+				84C80B5F1A06D87100313525 /* Device Location */,
+			);
+			name = "Single Device";
+			sourceTree = "<group>";
+		};
+		84C80B581A06D70300313525 /* Page Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84C80B501A06C40D00313525 /* FMPDeviceViewController.h */,
+				84C80B511A06C40D00313525 /* FMPDeviceViewController.m */,
+				84C80B561A06CC3300313525 /* DeviceViewController.storyboard */,
+			);
+			name = "Page Controller";
+			sourceTree = "<group>";
+		};
+		84C80B5F1A06D87100313525 /* Device Location */ = {
+			isa = PBXGroup;
+			children = (
+				84C80B591A06D72B00313525 /* FMPDeviceLocationViewController.h */,
+				84C80B5A1A06D72B00313525 /* FMPDeviceLocationViewController.m */,
+				84C80B5C1A06D75400313525 /* DeviceLocationViewController.storyboard */,
+				84E7894B1A12713D00786031 /* FMPPointAnnotation.h */,
+				84E7894C1A12713D00786031 /* FMPPointAnnotation.m */,
+			);
+			name = "Device Location";
+			sourceTree = "<group>";
+		};
+		84C80B671A06EFC800313525 /* Device Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				84C80B641A06EFBC00313525 /* FMPDeviceConfigurationViewController.h */,
+				84C80B651A06EFBC00313525 /* FMPDeviceConfigurationViewController.m */,
+				84C80B621A06EF9300313525 /* DeviceConfigurationViewController.storyboard */,
+			);
+			name = "Device Configuration";
+			sourceTree = "<group>";
+		};
+		A877A3E1913D4355B958E50C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84C80B601A06D8E100313525 /* MapKit.framework */,
+				A98B3ADB08A543188EAB79A6 /* libPods.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,9 +366,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849DA8D319FBD6A300477911 /* Build configuration list for PBXNativeTarget "FindMyPhoneClient" */;
 			buildPhases = (
+				D79B755C960A467A9E70CBA5 /* Check Pods Manifest.lock */,
 				849DA8AC19FBD6A300477911 /* Sources */,
 				849DA8AD19FBD6A300477911 /* Frameworks */,
 				849DA8AE19FBD6A300477911 /* Resources */,
+				116745AC01244EEA8405B3FD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -279,12 +441,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849DA8F519FBF88A00477911 /* logo@2x.png in Resources */,
+				849BEA001A22C445009A5DE5 /* ATConfigurationViewController.storyboard in Resources */,
 				849DA8DF19FBD8D200477911 /* RegisterViewController.storyboard in Resources */,
 				849DA8C419FBD6A300477911 /* LaunchScreen.xib in Resources */,
-				849DA8FF19FC0AE900477911 /* close@2x.png in Resources */,
+				84C80B631A06EF9300313525 /* DeviceConfigurationViewController.storyboard in Resources */,
 				849DA8E119FBDC4B00477911 /* LoginViewController.storyboard in Resources */,
 				849DA8C119FBD6A300477911 /* Images.xcassets in Resources */,
+				849E5EB41A03D97F0083E46D /* NewDeviceViewController.storyboard in Resources */,
+				84C80B5D1A06D75400313525 /* DeviceLocationViewController.storyboard in Resources */,
+				84C80B571A06CC3300313525 /* DeviceViewController.storyboard in Resources */,
+				849E5EAE1A03D35A0083E46D /* DevicesViewController.storyboard in Resources */,
+				8490618A19FC2582005509A6 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,17 +464,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		116745AC01244EEA8405B3FD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D79B755C960A467A9E70CBA5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		849DA8AC19FBD6A300477911 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C80B521A06C40D00313525 /* FMPDeviceViewController.m in Sources */,
+				849DA90319FC11A800477911 /* FMPApiController.m in Sources */,
 				849DA8B919FBD6A300477911 /* AppDelegate.m in Sources */,
+				84C80B5B1A06D72B00313525 /* FMPDeviceLocationViewController.m in Sources */,
+				849E5EA51A03C0E80083E46D /* FMPDefaultsController.m in Sources */,
+				84C80B661A06EFBC00313525 /* FMPDeviceConfigurationViewController.m in Sources */,
+				84BF71691A0578F30032D235 /* FMPDeviceCell.m in Sources */,
+				84E7894D1A12713D00786031 /* FMPPointAnnotation.m in Sources */,
 				849DA8ED19FBEB2600477911 /* FMPButton.m in Sources */,
 				849DA8E819FBE22B00477911 /* FMPRegisterViewController.m in Sources */,
+				849E5EB11A03D92D0083E46D /* FMPNewDeviceViewController.m in Sources */,
 				849DA8B619FBD6A300477911 /* main.m in Sources */,
+				849E5EAC1A03D3460083E46D /* FMPDevicesViewController.m in Sources */,
+				8490618D19FD3535005509A6 /* FMPHelpers.m in Sources */,
 				849DA8E419FBE21100477911 /* FMPLoginViewController.m in Sources */,
 				849DA8F219FBEBD900477911 /* FMPTextField.m in Sources */,
+				849BE9FE1A22C433009A5DE5 /* FMPATConfigurationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +630,7 @@
 		};
 		849DA8D419FBD6A300477911 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA60BF9866CD402FBE62B41C /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -431,6 +643,7 @@
 		};
 		849DA8D519FBD6A300477911 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA60BF9866CD402FBE62B41C /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -494,6 +707,7 @@
 				849DA8D519FBD6A300477911 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		849DA8D619FBD6A300477911 /* Build configuration list for PBXNativeTarget "FindMyPhoneClientTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +716,7 @@
 				849DA8D819FBD6A300477911 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

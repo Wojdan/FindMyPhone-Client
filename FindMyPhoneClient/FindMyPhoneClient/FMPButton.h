@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * Customowy UIButton
+ */
 @interface FMPButton : UIButton
 
 @end
