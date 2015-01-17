@@ -1,4 +1,4 @@
-![FindMyPhone Logo](http://find-my-phone-api.herokuapp.com/static/img/logo.png)
+![FindMyPhone Logo](https://github.com/Wojdan/FindMyPhone-Client/blob/master/FindMyPhoneClient/FindMyPhoneClient/icon%402x.png)
 # Opis aplikacji wraz z instrukcją dot. developmentu oraz kompilacji #
 
 Instrukcja dotyczy dowolnego systemu z rodziny OS X od wersji Mavericks wzwyż.
